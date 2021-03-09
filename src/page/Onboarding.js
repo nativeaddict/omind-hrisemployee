@@ -13,6 +13,7 @@ export default class OnboardingScreen extends Component{
         return(
             <View style={styles.container}>
                 <Text style={{color: '#fff'}}>Onboarding</Text>
+                <Text>Text 2</Text>
             </View>
         )
     }

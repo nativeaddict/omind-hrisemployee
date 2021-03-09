@@ -23,7 +23,7 @@ export default class SplashScreen extends Component{
                 loop={false}
                 speed={0.5}
                 onAnimationFinish = {()=>{  
-                // this.props.navigation.replace('Onboarding');
+                this.props.navigation.replace('Onboarding');
             }}
             />
             </View>

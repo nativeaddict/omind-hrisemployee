@@ -11,7 +11,7 @@ import {
     Alert
 } from 'react-native';
 // import gambar ke objek
-import bgimage from '../../assets/image/Object.png'
+import bgimages from '../../assets/images/V_Login.png'
 
 export default class LoginScreen extends Component{
     state={
@@ -51,7 +51,7 @@ export default class LoginScreen extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <Image style={styles.bgimageStyle} source={bgimage} />
+                <Image style={styles.bgimagesStyle} source={bgimages} />
                 <Text style={styles.title}>Omind</Text>
                 <Text style={styles.subtitle}>For Employee</Text>
                 <View style={styles.kotak}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center',
     },
-    bgimageStyle:{
+    bgimagesStyle:{
         resizeMode: 'cover',
         position: 'absolute',
         width: 360,

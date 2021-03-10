@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import{
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Button
 } from 'react-native';
 
 export default class OnboardingScreen extends Component{
@@ -13,7 +14,8 @@ export default class OnboardingScreen extends Component{
         return(
             <View style={styles.container}>
                 <Text style={{color: '#fff'}}>Onboarding</Text>
-                <Text>Text 2</Text>
+                <Text style={styles.button}
+                onPress={()=>this.props.navigation.navigate('Login')}>Next</Text>
             </View>
         )
     }
@@ -24,5 +26,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#054fff'
+    },
+    button:{
+        color: '#fff',
+        marginTop: 10,
+        backgroundColor: 'pink',
+        borderRadius: 2,
+
     }
 })

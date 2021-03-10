@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View, TextInput, StyleSheet} from 'react-native';
+import {Text, View, TextInput, StyleSheet, Header} from 'react-native';
 
-export default class HomeScreen extends Component{
+export default class ProfileScreen extends Component{
     render(){
         return(
             <View style={styles.container}>
@@ -13,6 +13,6 @@ export default class HomeScreen extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#054fff',
+        backgroundColor: 'pink',
     },
 })

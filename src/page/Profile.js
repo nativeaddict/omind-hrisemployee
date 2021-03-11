@@ -5,7 +5,7 @@ export default class ProfileScreen extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text>Test 123</Text>
+                <Text style={{fontFamily:'Poppins-Black', fontSize: 36, textAlign: 'center'}}>Profile</Text>
             </View>
         );
     }
@@ -13,6 +13,7 @@ export default class ProfileScreen extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: 'pink',
+        backgroundColor: '#fff',
+        justifyContent: 'center'
     },
 })

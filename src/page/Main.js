@@ -9,6 +9,8 @@ import LoginScreen from './Login';
 import HomeScreen from './Home';
 import ActivityScreen from './Activity';
 import ProfileScreen from './Profile';
+import PersonalInfoScreen from './Personalinfo';
+import ChangePassScreen from './ChangePass';
 
 const MainNavigator = createStackNavigator({
     // Every screen in this apps 
@@ -18,6 +20,8 @@ const MainNavigator = createStackNavigator({
     Home: {screen: HomeScreen},
     Activity: {screen: ActivityScreen},
     Profile: {screen: ProfileScreen},
+    Personalinfo: {screen: PersonalInfoScreen},
+    ChangePass: {screen: ChangePassScreen},
 
 }, {
     headerMode: 'none',

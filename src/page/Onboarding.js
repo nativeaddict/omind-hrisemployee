@@ -28,7 +28,7 @@ export default class OnboardingScreen extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,        
-        backgroundColor: '#054fff'
+        backgroundColor: '#099F84'
     },
     v_onboarding:{
         position: 'absolute',

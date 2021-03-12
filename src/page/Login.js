@@ -54,34 +54,39 @@ export default class LoginScreen extends Component{
                 <Image style={styles.bgimagesStyle} source={bgimages} />
                 <Text style={styles.title}>Omind</Text>
                 <Text style={styles.subtitle}>For Employee</Text>
-                <View style={styles.kotak}>
-                    <Text style={styles.textTitle}>Email</Text>
+                <View style={styles.boxinput}>
+                    <Text style={styles.textTitle} >Email</Text>
                     <View style={styles.inputEmail}>
                         <TextInput style={styles.inputText}
-                        placeholder= "email@omindtech.com"
-                        placeholderTextColor= "#fff" 
+                        placeholder="daru@omindtech.com"
+                        placeholderTextColor="#fff"
+                        selectionColor="#fff"
+                        keyboardType="email-address"
+                        onSubmitEditing={()=>this.password.focus}
                         value={this.state.email}
-                        onChangeText={(val)=>{this.setState({email: val})}}
-                        />
+                        onChangeText={(val)=>{this.setState({email: val})}} />
                     </View>
                     <Text style={styles.textPass}>Password</Text>
-                    <View style={styles.inputPass}>
+                    <View style={styles.inputEmail}>
                         <TextInput style={styles.inputText}
                         placeholder="**********"
-                        placeholderTextColor="#fff" 
+                        placeholderTextColor="#fff"
+                        selectionColor="#fff"
+                        secureTextEntry={true}
                         onChangeText={(val)=>{this.setState({password: val})}}
                         value={this.state.password}
-                        secureTextEntry={true}
+                        ref={(input) => this.password = input}
                         />
                     </View>
-                    <TouchableOpacity style={styles.buttonLogin} onPress={this.submit}>
-                    {/* onPress={()=>this.props.navigation.navigate('Activity')} */}
+                    <TouchableOpacity style={styles.buttonLogin}
+                    onPress={this.submit}>
                         <Text style={styles.textButton}>Sign In</Text>
                     </TouchableOpacity>
-                   
+
                     <Text style={{fontFamily: 'Poppins-Black', fontSize: 15, color: 'white',
-                    marginTop: 10, borderRadius: 10, backgroundColor: 'pink', width: 100, textAlign: 'center'}}
+                    marginTop: 10, borderRadius: 10, backgroundColor: 'pink', width: 100, textAlign: 'center', alignSelf:'center'}}
                     onPress={()=>this.props.navigation.navigate('Profile')}>PROFILE</Text>
+
                 </View>
             </View>
         )
@@ -93,59 +98,65 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         justifyContent: 'center',
+        alignItems: 'center',
     },
     bgimagesStyle:{
         resizeMode: 'cover',
         position: 'absolute',
-        width: 360,
-        height: 350,
-        top: 0,
+        width: '100%',
+        height: 330,
+        top: 0
     },
-    kotak:{
-        flex: 1,
-        height: 400,
-        backgroundColor: '#054fff',
-        borderTopRightRadius: 10,
-        borderTopLeftRadius: 10,
-        alignItems: 'center',
+    boxinput:{
+        flexGrow: 1,
+        width: '100%',
+        height: 200,
+        backgroundColor: '#099F84',
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40,
+        // alignItems: 'center',
         // justifyContent: 'center',
-        marginTop: 30
+        marginTop: 10,
     },
     title:{
         fontSize: 72,
-        color: '#fff',
+        color: '#f2f2f2',
         justifyContent: 'center',
         textAlign: 'center',
         textShadowRadius: 50,
         textShadowColor: '#262734',
-        marginTop: 81,
+        marginTop: 60,
         marginBottom: 0,
         fontFamily: 'Poppins-Black'
     },
     subtitle:{
         fontSize: 18,
-        color: '#fff',
+        color: '#f2f2f2',
         justifyContent: 'center',
         textAlign: 'center',
-        fontFamily: 'Poppins-Medium',
+        textShadowRadius: 50,
+        textShadowColor: '#262734',
+        fontFamily: 'Poppins-Black',
         marginTop: -40,
-        marginBottom: 40,
-        lineHeight: 27
+        marginBottom: 60
     },
     textTitle:{
         fontFamily: 'Poppins-Black',
         fontSize: 12,
-        marginTop: 61,
+        marginTop: 30,
         marginBottom: 0,
-        color: '#fff',
+        color: '#f2f2f2',
         alignItems: 'center',
+        marginLeft: 80
 
     },
     textPass:{
         fontFamily: 'Poppins-Black',
         fontSize: 12,
         marginBottom: 0,
-        color: '#fff',
+        color: '#f2f2f2',
+        alignItems: 'center',
+        marginLeft: 80
     },
     inputText:{
         height: 50,
@@ -154,26 +165,31 @@ const styles = StyleSheet.create({
     },
     inputEmail:{
         width: 229,
-        backgroundColor: '#054fff',
+        backgroundColor: '#099F84',
         borderRadius: 30,
         borderWidth: 1,
-        borderColor: '#fff',
-        height: 30,
+        borderColor: '#f2f2f2',
+        height: 35,
         marginTop: 0,
         marginBottom: 19,
         justifyContent: 'center',
-        padding: 20,
+        paddingHorizontal: 16,
+        marginVertical: 10,
+        alignSelf: 'center',
+        
+
     },
     inputPass:{
         width: 229,
-        backgroundColor: '#054fff',
+        backgroundColor: '#099F84',
         borderRadius: 30,
         borderWidth: 1,
-        borderColor: '#fff',
+        borderColor: '#f2f2f2',
         height: 30,
         marginBottom: 19,
         justifyContent: 'center',
         padding: 20,
+        
     },
     buttonLogin:{
         width: 125,
@@ -182,10 +198,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#FBB03B',
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center',
     },
     textButton:{
         fontFamily: 'Poppins-Black',
-        fontSize: 12,
+        fontSize: 13,
+        color: '#f2f2f2'
 
     }
 })

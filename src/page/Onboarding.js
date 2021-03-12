@@ -40,19 +40,19 @@ export default class OnboardingScreen extends Component{
             onDone={()=>this.props.navigation.navigate('Login')}
             pages={[
                 {
-                    backgroundColor:'#054fff',
+                    backgroundColor:'#099F84',
                     image: <Image style={styles.v_onboarding} source={require('../../assets/images/V_Onboarding1.png')} />,
                     title: <Text style={styles.heading1Text}>Analyze</Text>,
                     subtitle: <Text style={styles.heading2Text}>We put a well thought out strategy behind every decision we make</Text>
                 },
                 {
-                    backgroundColor: '#054fff',
+                    backgroundColor: '#099F84',
                     image: <Image style={styles.v_onboarding2} source={require('../../assets/images/V_Onboarding2.png')} />,
                     title: <Text style={styles.heading1Text2}>Quality</Text>,
                     subtitle: <Text style={styles.heading2Text}>We work with the intuition of integrity, honesty, and attention</Text>
                 },
                 {
-                    backgroundColor: '#054fff',
+                    backgroundColor: '#099F84',
                     image: <Image style={styles.v_onboarding3} source={require('../../assets/images/V_Onboarding3.png')} />,
                     title: <Text style={styles.heading1Text3}>Magic</Text>,
                     subtitle: <Text style={styles.heading2Text}>Share your challenge with our team, and we will solve it

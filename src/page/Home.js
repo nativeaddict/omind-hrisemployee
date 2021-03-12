@@ -29,7 +29,8 @@ export default class HomeScreen extends Component{
                     <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notifications')}>Notification</Text>
                     {/* Name */}   
                     {/* <Button title="kontol" onPress={()=>this.props.navigation.navigate('Profile')}/>              */}
-                    <Text style={styles.textNameHeading}>Hello, Barud Tampubolon!</Text>
+                    <Text style={styles.textNameHeading} 
+                    onPress={()=>this.props.navigation.navigate('Profile')} >Hello, Barud Tampubolon!</Text>
                         {/* Profile Picture */}
                     {/* MASIH BUG PENCET FOTO BELOM KE NAVIGATE */}
                     <TouchableOpacity onPress={()=>this.props.navigation.navigate('Profile')}>

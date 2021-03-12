@@ -77,13 +77,8 @@ export default class LoginScreen extends Component{
                         />
                     </View>
                     <TouchableOpacity style={styles.buttonLogin} onPress={()=>this.props.navigation.navigate('Home')}>
-                    {/* onPress={()=>this.props.navigation.navigate('Activity')} */}
                         <Text style={styles.textButton}>Sign In</Text>
                     </TouchableOpacity>
-                   
-                    {/* <Text style={{fontFamily: 'Poppins-Black', fontSize: 15, color: 'white',
-                    marginTop: 10, borderRadius: 10, backgroundColor: 'pink', width: 100, textAlign: 'center'}}
-                    onPress={()=>this.props.navigation.navigate('Profile')}>PROFILE</Text> */}
                 </View>
             </View>
         )

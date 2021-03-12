@@ -5,6 +5,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import SplashScreen from './Splash';
 import OnboardingScreen from './Onboarding'; 
+import NotificationsScreen from './Notifications';
 import LoginScreen from './Login';
 import HomeScreen from './Home';
 import ActivityScreen from './Activity';

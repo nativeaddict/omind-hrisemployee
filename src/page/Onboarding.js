@@ -6,25 +6,66 @@ import{
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+// Install this library
+import Onboarding from 'react-native-onboarding-swiper';
 
+const Skip = ({...props}) => (
+    <Text {...props} style={styles.skipText}>Skip</Text>
+);
+
+const Next = ({...props}) => (
+    <TouchableOpacity {...props} style={styles.buttonNext}>
+        <Text style={styles.buttonNextText}>Next</Text>
+    </TouchableOpacity>
+);
+
+const Done = ({...props}) => (
+    <TouchableOpacity {...props} style={styles.buttonNext}>
+        <Text style={styles.buttonNextText}>Next</Text>
+    </TouchableOpacity>
+);
 export default class OnboardingScreen extends Component{
     constructor(props){
         super();
     }
     render(){
         return(
-            <View style={styles.container}>                
-                <Image style={styles.v_onboarding} source={require('../../assets/images/V_Onboarding1.png')}></Image>
-                <Text style={styles.heading1Text}>Analyze</Text>
-                <Text style={styles.heading2Text}>We put a well thought out strategy behind every decision we make.</Text>
-                <TouchableOpacity style={styles.buttonNext}>
-                    <Text style={styles.buttonNextText} onPress={()=>this.props.navigation.navigate('Login')}>Next</Text>
-                </TouchableOpacity>
-                <Text style={styles.skipText}>Skip</Text>
-            </View>
+            <Onboarding 
+            SkipButtonComponent={Skip}
+            NextButtonComponent={Next}
+            DoneButtonComponent={Done}
+
+            // Soon -> Change navigation to replace,
+            onSkip={()=>this.props.navigation.navigate('Login')}
+            onDone={()=>this.props.navigation.navigate('Login')}
+            pages={[
+                {
+                    backgroundColor:'#054fff',
+                    image: <Image style={styles.v_onboarding} source={require('../../assets/images/V_Onboarding1.png')} />,
+                    title: <Text style={styles.heading1Text}>Analyze</Text>,
+                    subtitle: <Text style={styles.heading2Text}>We put a well thought out strategy behind every decision we make</Text>
+                },
+                {
+                    backgroundColor: '#054fff',
+                    image: <Image style={styles.v_onboarding2} source={require('../../assets/images/V_Onboarding2.png')} />,
+                    title: <Text style={styles.heading1Text2}>Quality</Text>,
+                    subtitle: <Text style={styles.heading2Text}>We work with the intuition of integrity, honesty, and attention</Text>
+                },
+                {
+                    backgroundColor: '#054fff',
+                    image: <Image style={styles.v_onboarding3} source={require('../../assets/images/V_Onboarding3.png')} />,
+                    title: <Text style={styles.heading1Text3}>Magic</Text>,
+                    subtitle: <Text style={styles.heading2Text}>Share your challenge with our team, and we will solve it
+                    </Text>
+                }
+                
+            ]}  
+            />
         )
     }
 }
+
+
 const styles = StyleSheet.create({
     container:{
         flex: 1,        
@@ -34,14 +75,50 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: 235,
         height: 235,
+        bottom: '50%',
+        left: 63        
+    },
+    v_onboarding2:{
+        position: 'absolute',
+        width: 188,
+        height: 270,
+        bottom: '50%',
+        left: 86,    
+    },
+    v_onboarding3:{
+        position: 'absolute',
+        width: 235,
+        height: 235,
+        bottom: '50%',
         left: 63,
-        top: 134,
     },
     heading1Text:{        
         position: 'absolute',
         width: 155,
         height: 54,
         left: 102,
+        top: 369,
+        fontFamily: 'Poppins-Black',
+        fontSize: 36,
+        lineHeight: 54,
+        color: '#fff'
+    },
+    heading1Text2:{        
+        position: 'absolute',
+        width: 142,
+        height: 54,
+        left: 109,
+        top: 369,
+        fontFamily: 'Poppins-Black',
+        fontSize: 36,
+        lineHeight: 54,
+        color: '#fff'
+    },
+    heading1Text3:{        
+        position: 'absolute',
+        width: 117,
+        height: 54,
+        left: 121,
         top: 369,
         fontFamily: 'Poppins-Black',
         fontSize: 36,
@@ -61,16 +138,13 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     buttonNext:{
-        position: 'absolute',
         width: 57,
         height: 18,
-        left: '75%',
-        top: '90%',
+        right: '15%',
         backgroundColor: '#fbb03b',
         borderRadius: 10
     },
     buttonNextText:{
-        // position: 'absolute',
         textAlign: 'center',
         fontFamily: 'Poppins-Black',
         fontSize: 12,
@@ -78,11 +152,9 @@ const styles = StyleSheet.create({
         color: '#262734'
     },
     skipText:{
-        position: 'absolute',
         width: 57,
         height: 18,
-        left: '10%',
-        top: '90%',
+        left: '15%',
         fontFamily: 'Poppins-Black',
         fontSize: 12,
         lineHeight: 18,

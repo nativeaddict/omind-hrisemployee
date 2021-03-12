@@ -52,7 +52,7 @@ export default class LoginScreen extends Component{
         return(
             <View style={styles.container}>
                 <Image style={styles.bgimagesStyle} source={bgimages} />
-                <Text style={styles.title}>Omind</Text>
+                <Text style={styles.title}>HRIS</Text>
                 <Text style={styles.subtitle}>For Employee</Text>
                 <View style={styles.boxinput}>
                     <Text style={styles.textTitle} >Email</Text>
@@ -69,24 +69,21 @@ export default class LoginScreen extends Component{
                     <Text style={styles.textPass}>Password</Text>
                     <View style={styles.inputEmail}>
                         <TextInput style={styles.inputText}
-                        placeholder="**********"
-                        placeholderTextColor="#fff"
-                        selectionColor="#fff"
-                        secureTextEntry={true}
+                        placeholder="Password"
+                        placeholderTextColor="#fff" 
                         onChangeText={(val)=>{this.setState({password: val})}}
                         value={this.state.password}
                         ref={(input) => this.password = input}
                         />
                     </View>
-                    <TouchableOpacity style={styles.buttonLogin}
-                    onPress={this.submit}>
+                    <TouchableOpacity style={styles.buttonLogin} onPress={()=>this.props.navigation.navigate('Home')}>
+                    {/* onPress={()=>this.props.navigation.navigate('Activity')} */}
                         <Text style={styles.textButton}>Sign In</Text>
                     </TouchableOpacity>
-
-                    <Text style={{fontFamily: 'Poppins-Black', fontSize: 15, color: 'white',
-                    marginTop: 10, borderRadius: 10, backgroundColor: 'pink', width: 100, textAlign: 'center', alignSelf:'center'}}
-                    onPress={()=>this.props.navigation.navigate('Profile')}>PROFILE</Text>
-
+                   
+                    {/* <Text style={{fontFamily: 'Poppins-Black', fontSize: 15, color: 'white',
+                    marginTop: 10, borderRadius: 10, backgroundColor: 'pink', width: 100, textAlign: 'center'}}
+                    onPress={()=>this.props.navigation.navigate('Profile')}>PROFILE</Text> */}
                 </View>
             </View>
         )
@@ -162,6 +159,7 @@ const styles = StyleSheet.create({
         height: 50,
         color: 'white',
         alignItems: 'center',
+        fontFamily: 'Poppins-Light'
     },
     inputEmail:{
         width: 229,

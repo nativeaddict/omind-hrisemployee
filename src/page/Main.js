@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {} from 'react-native';
 // Install this library
 import { createAppContainer } from 'react-navigation';
@@ -18,6 +18,7 @@ const MainNavigator = createStackNavigator({
     Onboarding: {screen: OnboardingScreen},
     Login: {screen: LoginScreen},
     Home: {screen: HomeScreen},
+    Notifications: {screen: NotificationsScreen},
     Activity: {screen: ActivityScreen},
     Profile: {screen: ProfileScreen},
     Personalinfo: {screen: PersonalInfoScreen},
@@ -29,6 +30,7 @@ const MainNavigator = createStackNavigator({
         headerVisible: false,
     }
 });
+
 export default createAppContainer(
     MainNavigator
 );

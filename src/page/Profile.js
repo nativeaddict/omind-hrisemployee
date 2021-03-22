@@ -11,7 +11,7 @@ export default class ProfileScreen extends Component{
                 <Image style={styles.header} source={arrowBack} 
                 onPress={()=>this.props.navigation.navigate('Onboarding')}/>
                 <Text style={styles.TextHeader}
-                onPress={()=>this.props.navigation.navigate('Login')}>Profile</Text>
+                onPress={()=>this.props.navigation.navigate('Home')}>Profile</Text>
                 <View style={styles.boxProfile} >
                     <View style={{flex: 0, alignItems: 'center', justifyContent: 'space-between', marginTop: -40, position: 'relative' }}>
                     <View style={{backgroundColor: '#f5f4f4', width: '90%', height: 90, borderRadius: 10, 

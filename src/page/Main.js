@@ -8,10 +8,19 @@ import OnboardingScreen from './Onboarding';
 import NotificationsScreen from './Notifications';
 import LoginScreen from './Login';
 import HomeScreen from './Home';
+import PresenceScreen from './Presence';
+import AttendanceScreen from './Attendance';
+import AllowanceScreen from './Allowance';
+import PerformanceScreen from './Performance';
+import NewsScreen from './News';
+import FAQScreen from './FAQ';
+import RulesScreen from './Rules';
 import ActivityScreen from './Activity';
 import ProfileScreen from './Profile';
 import PersonalInfoScreen from './Personalinfo';
 import ChangePassScreen from './ChangePass';
+
+
 
 const MainNavigator = createStackNavigator({
     // Every screen in this apps 
@@ -19,11 +28,19 @@ const MainNavigator = createStackNavigator({
     Onboarding: {screen: OnboardingScreen},
     Login: {screen: LoginScreen},
     Home: {screen: HomeScreen},
+    News: {screen: NewsScreen},
+    Presence: {screen: PresenceScreen},
+    Attendance: {screen: AttendanceScreen},
+    Allowance: {screen: AllowanceScreen},
+    Performance: {screen: PerformanceScreen},
+    FAQ: {screen: FAQScreen},
+    Rules: {screen: RulesScreen},
     Notifications: {screen: NotificationsScreen},
     Activity: {screen: ActivityScreen},
     Profile: {screen: ProfileScreen},
     Personalinfo: {screen: PersonalInfoScreen},
     ChangePass: {screen: ChangePassScreen},
+    
 
 }, {
     headerMode: 'none',

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import {
-    View, 
-    Text, 
-    StyleSheet
+    View,
+    Text,
+    StyleSheet,
 } from 'react-native';
 
-export default class FAQScreen extends Component{
+export default class NewsScreen extends Component{
     
     render(){
         return(
             <View style={styles.container}>
-                <Text style={{fontFamily:'Poppins-Black', fontSize: 36, textAlign: 'center'}}>FAQ</Text>
+                <Text style={{fontFamily:'Poppins-Black', fontSize: 36, textAlign: 'center'}}>News</Text>
             </View>
         );
     }

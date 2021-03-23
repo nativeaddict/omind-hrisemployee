@@ -32,7 +32,7 @@ export default class ChangePassScreen extends Component{
                                 color="#f2f2f2"
                                 secureTextEntry={true} />
                                 <TouchableOpacity style={styles.buttonSave}>
-                                <Text>Save</Text>
+                                <Text style={{fontFamily: 'Poppins-Black', color:'#f2f2f2', justifyContent: 'center'}} >Save</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

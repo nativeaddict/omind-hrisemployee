@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, TextInput, StyleSheet, Header, Image} from 'react-native';
+import {Text, View, TextInput, StyleSheet, Header, Image, TouchableOpacity} from 'react-native';
 import arrowBack from '../../assets/images/arrow-back.png';
 import arrowNext from '../../assets/images/arrow-next.png';
 import photoProfil from '../../assets/images/photoProfile.png';
@@ -12,20 +12,24 @@ export default class ProfileScreen extends Component{
                 onPress={()=>this.props.navigation.navigate('Onboarding')}/>
                 <Text style={styles.TextHeader}
                 onPress={()=>this.props.navigation.navigate('Login')}>Profile</Text>
+                {/* BoxHijau */}
                 <View style={styles.boxProfile} >
+                    {/* Kotak Foto dan Nama */}
                     <View style={{flex: 0, alignItems: 'center', justifyContent: 'space-between', marginTop: -40, position: 'relative' }}>
                     <View style={{backgroundColor: '#f5f4f4', width: '90%', height: 90, borderRadius: 10, 
-                    shadowColor:'#000', shadowOffset: {width: 0, height: 1}, shadowOpacity: 0.8, shadowRadius: 2, elevation: 5 , position: 'absolute'}}>
-                        <View style={{flexDirection: 'row', alignItems: 'center', paddingLeft: 10 }}>
+                    shadowColor:'#000', shadowOffset: {width: 0, height: 1}, shadowOpacity: 2, shadowRadius: 10, elevation: 5 , position: 'absolute'}}>
+                        <View style={{flexDirection: 'row', alignItems: 'center', paddingLeft: 15, paddingRight: 75, justifyContent: 'space-between' }}>
                             <Image source={photoProfil} style={styles.profilePic}
                             onPress={()=>this.props.navigation.navigate('Login')} />
-                            <View>
-                                <Text style={styles.titleName} >Daru Marojahan Pakpahan</Text>
+                            <View style={{alignItems: 'center', justifyContent: 'center',}}>
+                                <Text style={styles.titleName} >Daru Pakpahan</Text>
                                 <Text style={styles.titlePosition}>Junior Frontend</Text>
                             </View>
                         </View>
                         </View> 
                     </View>
+                    
+                    {/* Isi Menu Profile */}
                     <View style={styles.button} onPress={()=>this.props.navigation.navigate('Login')} >
                         <Image style={styles.arrowNext} source={arrowNext}  />
                         <Text style={styles.textButton} 
@@ -46,6 +50,16 @@ export default class ProfileScreen extends Component{
                         <Text style={styles.textButton} 
                         onPress={()=>this.props.navigation.navigate('Login')}>Logout</Text>
                     </View>
+                    <TouchableOpacity style={{width: 125,
+                    height: 30,
+                    borderRadius: 30,
+                    backgroundColor: '#FBB03B',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    alignSelf: 'center',
+                    marginTop: 400}}>
+                        <Text> LOGOUT POPUP </Text>
+                    </TouchableOpacity>
                     <Text style={styles.footer}>PT Omind Muda Berkarya Indonesia</Text>
                 </View>
                 {/* <Text style={{fontFamily: 'Poppins-Black', fontSize: 15, color: 'white',
@@ -174,13 +188,17 @@ const styles = StyleSheet.create({
         fontFamily:'Poppins-Black', 
         fontSize: 14, 
         marginLeft: 15, 
-        marginTop:10 
+        marginTop:10,
+        // textAlign: 'center',
+        // alignItems: 'center',
+        // justifyContent: 'center'
     },
     titlePosition:{
         color: 'black', 
         fontFamily: 'Poppins-Medium', 
         fontSize: 14, 
         textAlign: 'center', 
-        marginTop: -5
+        marginTop: -5,
+
     },
 })

@@ -5,12 +5,12 @@ import {
     StyleSheet
 } from 'react-native';
 
-export default class FAQScreen extends Component{
+export default class RulesScreen extends Component{
     
     render(){
         return(
             <View style={styles.container}>
-                <Text style={{fontFamily:'Poppins-Black', fontSize: 36, textAlign: 'center'}}>FAQ</Text>
+                <Text style={{fontFamily:'Poppins-Black', fontSize: 36, textAlign: 'center'}}>Rules</Text>
             </View>
         );
     }

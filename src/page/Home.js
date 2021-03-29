@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     },
     textMenuHome: {        
         textAlign: 'center',
-        color: '#fff',
+        color: '#f9f9fb',
         fontFamily: 'Poppins-Bold',
         fontSize: 14,
         lineHeight: 21

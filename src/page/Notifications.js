@@ -10,7 +10,7 @@ export default class NotificationsScreen extends Component{
                     {/* Navbar */}
                     <View style={styles.navbar}>
                         <Text style={styles.textMenuActivity} onPress={()=>this.props.navigation.navigate('Activity')}>Activity</Text>
-                        <Text style={styles.textMenuHome} onPres={()=>this.props.navigation.navigate('Home')}>Home</Text>
+                        <Text style={styles.textMenuHome} onPress={()=>this.props.navigation.navigate('Home')}>Home</Text>
                         <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notifications')}>Notification</Text>
 
                         {/* boxHijau */}

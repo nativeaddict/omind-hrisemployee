@@ -20,7 +20,8 @@ import ProfileScreen from './Profile';
 import PersonalInfoScreen from './Personalinfo';
 import ChangePassScreen from './ChangePass';
 import ApprovalScreen from './Approval';
-
+import TeamScreen from './Team';
+import TargetScreen from './Target';
 
 
 const MainNavigator = createStackNavigator({
@@ -42,6 +43,8 @@ const MainNavigator = createStackNavigator({
     Personalinfo: {screen: PersonalInfoScreen},
     ChangePass: {screen: ChangePassScreen},
     Approval: {screen: ApprovalScreen},
+    Team: {screen: TeamScreen},
+    Target: {screen: TargetScreen},
 
 }, {
     headerMode: 'none',

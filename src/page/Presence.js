@@ -29,7 +29,8 @@ export default class PresenceScreen extends Component{
                     <Image 
                         style={{position: 'absolute', left: 7, width: 35, height: 35}}
                         source={require('../../assets/images/Icon_Announcement.png')}/>
-                    <Text style={{position: 'absolute', left: 60, width: 115, fontFamily: 'Poppins-Medium', fontSize: 12, lineHeight: 18}}>You’re not{'\n'}Clock In yet today!</Text>
+                    <Text style={{position: 'absolute', left: 60, width: 115, fontFamily: 'Poppins-Medium', fontSize: 12, lineHeight: 18}}
+                    onPress={()=>this.props.navigation.navigate('Home')}>You’re not{'\n'}Clock In yet today!</Text>
                 </View>
                 {/* Presence */}
                 <Text style={styles.textPresenceHeading}>Press the button!</Text>
@@ -65,11 +66,11 @@ export default class PresenceScreen extends Component{
                 </View>
                 {/* History */}
                 <View style={styles.rectanglePresenceHistory}>
-                    <Text style={{left: 30, fontFamily: 'Poppins-Bold', fontSize: 14}}>Presence History</Text>
+                    <Text style={{left: 30, fontFamily: 'Poppins-Bold', fontSize: 14}} onPress={()=>this.props.navigation.navigate('PresenceHistory')}>Presence History</Text>
                     {/* <View style={{left: 90, position: 'absolute', width: 12, height: 12, borderRadius: 100, backgroundColor: '#099F84'}}/> */}
                     <View style={{left: 270, position: 'absolute', width: 20, height: 20, borderRadius: 100, backgroundColor: '#099F84', alignSelf: 'center'}}>
                         <Image 
-                        style={{width: 15, height: 15}}
+                        style={{top: 2, width: 15, height: 15, alignSelf: 'center'}}
                         source={require('../../assets/images/arrow-next.png')}/>
                     </View>
                 </View>

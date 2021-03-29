@@ -9,9 +9,14 @@ import NotificationsScreen from './Notifications';
 import LoginScreen from './Login';
 import HomeScreen from './Home';
 import PresenceScreen from './Presence';
+import PresenceHistoryScreen from './PresenceHistory';
 import AttendanceScreen from './Attendance';
 import AllowanceScreen from './Allowance';
 import PerformanceScreen from './Performance';
+import PayslipScreen from './Payslip';
+import SubmissionScreen from './Submission';
+import SubmissionHistoryScreen from './SubmissionHistory';
+import SubmissionApplyScreen from './SubmissionApply';
 import NewsScreen from './News';
 import FAQScreen from './FAQ';
 import RulesScreen from './Rules';
@@ -19,9 +24,8 @@ import ActivityScreen from './Activity';
 import ProfileScreen from './Profile';
 import PersonalInfoScreen from './Personalinfo';
 import ChangePassScreen from './ChangePass';
-import ApprovalScreen from './Approval';
-import TeamScreen from './Team';
-import TargetScreen from './Target';
+
+
 
 
 const MainNavigator = createStackNavigator({
@@ -32,9 +36,14 @@ const MainNavigator = createStackNavigator({
     Home: {screen: HomeScreen},
     News: {screen: NewsScreen},
     Presence: {screen: PresenceScreen},
+    PresenceHistory: {screen: PresenceHistoryScreen},
     Attendance: {screen: AttendanceScreen},
     Allowance: {screen: AllowanceScreen},
     Performance: {screen: PerformanceScreen},
+    Payslip: {screen: PayslipScreen},
+    Submission: {screen: SubmissionScreen},
+    SubmissionHistory: {screen: SubmissionHistoryScreen},
+    SubmissionApply: {screen: SubmissionApplyScreen},
     FAQ: {screen: FAQScreen},
     Rules: {screen: RulesScreen},
     Notifications: {screen: NotificationsScreen},
@@ -42,9 +51,7 @@ const MainNavigator = createStackNavigator({
     Profile: {screen: ProfileScreen},
     Personalinfo: {screen: PersonalInfoScreen},
     ChangePass: {screen: ChangePassScreen},
-    Approval: {screen: ApprovalScreen},
-    Team: {screen: TeamScreen},
-    Target: {screen: TargetScreen},
+    
 
 }, {
     headerMode: 'none',

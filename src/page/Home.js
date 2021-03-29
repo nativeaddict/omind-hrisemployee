@@ -19,7 +19,7 @@ export default class HomeScreen extends Component{
     constructor(props){
         super();
     }
-    render(){
+    render(){ 
         return(
             <SafeAreaView style={styles.container}>
                 <View>
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     },
     textMenuHome: {        
         textAlign: 'center',
-        color: '#f9f9fb',
+        color: '#fff',
         fontFamily: 'Poppins-Bold',
         fontSize: 14,
         lineHeight: 21

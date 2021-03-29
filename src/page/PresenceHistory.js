@@ -6,7 +6,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-export default class PerformanceScreen extends Component{
+export default class PresenceHistoryScreen extends Component{
     
     render(){
         return(
@@ -18,7 +18,8 @@ export default class PerformanceScreen extends Component{
                         source={require('../../assets/images/arrow-back.png')}
                     />                    
                 </View>
-                <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Home')}>Performance</Text>
+                <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Presence')}>Presence History</Text>
+                
             </View>
         );
     }
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
         height: 15,
         top: 23,
         left: 22,       
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#F2F2F2',
         borderRadius: 2,
     },
     textNavigation:{
@@ -46,6 +47,5 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 21,    
         color: '#262734'
-    },
-
+    }
 })

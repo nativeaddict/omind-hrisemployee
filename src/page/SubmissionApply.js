@@ -32,11 +32,10 @@ export default class SubmissionApplyScreen extends Component{
                     />                    
                 </View>
                 <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Home')}>Submission Apply</Text>
-                <FlatList
+                <FlatList 
+                    contentContainerStyle={{paddingRight: 45}}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    // Warning Virtualized List
-                    // keyExtractor={}
                     data={[
                         {
                             id: 'Presence',
@@ -113,6 +112,7 @@ const styles = StyleSheet.create({
         color: '#262734'
     },
     rectangleMenu:{
+        flex: 1,
         margin: 5,                
         justifyContent: 'flex-end',
         width: 70,

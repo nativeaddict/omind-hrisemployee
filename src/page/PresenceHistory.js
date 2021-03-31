@@ -3,6 +3,7 @@ import {
     View, 
     Text, 
     Image,
+    TouchableWithoutFeedback,
     StyleSheet
 } from 'react-native';
 
@@ -12,12 +13,14 @@ export default class PresenceHistoryScreen extends Component{
         return(
             <View style={styles.container}>
                  {/* Navbar */}
-                 <View style={styles.rectangleBack}>
-                    <Image
-                        style={{position: 'absolute', width: 17, height: 17}}
-                        source={require('../../assets/images/arrow-back.png')}
-                    />                    
-                </View>
+                 <TouchableWithoutFeedback onPress={()=>{this.props.navigation.navigate('Presence')}}>
+                    <View style={styles.rectangleBack}>
+                        <Image
+                            style={{position: 'absolute', width: 17, height: 17}}
+                            source={require('../../assets/images/arrow-back.png')}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
                 <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Presence')}>Presence History</Text>
                 
             </View>

@@ -27,21 +27,78 @@ export default class TeamScreen extends Component{
                 </View>               
                 {/* Title Text */}
                 <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Activity')}>Our Team</Text>
-                <FlatList
-                data={[
-                    {key: 'Devin'},
-                    {key: 'Dan'},
-                    {key: 'Dominic'},
-                    {key: 'Jackson'},
-                    {key: 'James'},
-                    {key: 'Joel'},
-                    {key: 'John'},
-                    {key: 'Jillian'},
-                    {key: 'Jimmy'},
-                    {key: 'Julie'},
-                ]}
-                renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-                />
+                <View style={{top: 30}}>
+                    <FlatList
+                    contentContainerStyle={{paddingBottom: 80,}}
+                    data={[
+                        {
+                            id: 'TeamContent1',
+                            menuIcon: require('../../assets/images/PhotoReval.png'),
+                            teamName: 'Reval Fahmi Aziz',
+                            role: 'Junior Frontend Developer',
+                        },
+                        {
+                            id: 'TeamContent2',
+                            menuIcon: require('../../assets/images/PhotoDaru.png'),
+                            teamName: 'Daru Gaje Wicaksono',
+                            role: 'Junior Frontend Developer',
+                        },
+                        {
+                            id: 'TeamContent3',
+                            menuIcon: require('../../assets/images/PhotoBarid.png'),
+                            teamName: 'Barid Rais',
+                            role: 'Junior Frontend Developer',
+                        },
+                        {
+                            id: 'TeamContent4',
+                            menuIcon: require('../../assets/images/PhotoGalih.png'),
+                            teamName: 'Galih Bacot Berbobot',
+                            role: 'Senior fullstack Developer',
+                        },
+                        {
+                            id: 'TeamContent5',
+                            menuIcon: require('../../assets/images/PhotoBarid.png'),
+                            teamName: 'Marsa Wafira',
+                            role: 'Junior UI/UX Designer',
+                        },
+                        {
+                            id: 'TeamContent6',
+                            menuIcon: require('../../assets/images/PhotoDaru.png'),
+                            teamName: 'Vris Widio Priambudi',
+                            role: 'Junior UI/UX Designer',
+                        },
+                        {
+                            id: 'TeamContent7',
+                            menuIcon: require('../../assets/images/PhotoGalih.png'),
+                            teamName: 'Asma Gigit Daru',
+                            role: 'Junior Fullstack Developer',
+                        },
+                        {
+                            id: 'TeamContent8',
+                            menuIcon: require('../../assets/images/PhotoGalih.png'),
+                            teamName: 'Galih Widio',
+                            role: 'Junior Fullstack Developer',
+                        },
+                        {
+                            id: 'TeamContent9',
+                            menuIcon: require('../../assets/images/PhotoGalih.png'),
+                            teamName: 'Reval Fakboi',
+                            role: 'Junior Fullstack Developer',
+                        },
+                        
+                    ]}
+                    renderItem={({item}) =>
+                    <View style={styles.rectangleContent}>
+                        <View style={{backgroundColor: '#099f84', width: 60, height: 60, borderRadius: 30, margin: 13,}}>
+                            <Image style={{width: 60, height: 60,}} 
+                            source={item.menuIcon} />
+                        </View>
+                        <Text style={{fontFamily: 'Poppins-Bold', fontSize: 14, left: 92, top: -69}}> {item.teamName} </Text>
+                        <Text style={{fontSize: 12, fontFamily: 'Poppins-Medium', left: 92, top: -71}}> {item.role} </Text>
+                    </View>
+                    }
+                    />
+               </View>
             </View>
         );
     }
@@ -51,7 +108,7 @@ const styles = StyleSheet.create({
     container: {
      flex: 1,
      paddingTop: 22,
-     backgroundColor: 'pink'
+     backgroundColor: '#f9f9fb',
     },
     item: {
       padding: 10,
@@ -80,5 +137,15 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 21,    
         color: '#262734'
+    },
+    rectangleContent:{
+        margin: 5,
+        width: 310,
+        height: 80,
+        left: 25,
+        top: 26,
+        elevation: 5,
+        borderRadius: 5,
+        resizeMode: 'center'
     },
   })

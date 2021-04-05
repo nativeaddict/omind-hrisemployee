@@ -7,40 +7,47 @@ export default class PersonalInfoScreen extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <Image style={styles.header} source={arrowBack} 
-                onPress={()=>this.props.navigation.navigate('Profile')}/>
-                <Text style={styles.TextHeader}
-                onPress={()=>this.props.navigation.navigate('Profile')}>Personal Info</Text>
-                <View style={{flex: 1, alignItems: 'center', marginTop: 50}}>
-                    <View style={{backgroundColor: '#099F84', borderRadius: 10, width: '90%', height: 380, alignItems: 'center'}}>
-                        <View style={{backgroundColor: '#099F84', borderRadius: 10, width: '90%', height: 315, marginTop: 34}}>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Name</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>Daru Marojahan Pakpahan</Text>
+                {/* Navbar */}
+                <View style={styles.rectangleBack}>
+                    <Image
+                        style={{width: 17, height: 17, position: 'absolute'}}
+                        source={require('../../assets/images/arrow-back.png')}
+                    />                    
+                </View>               
+                {/* Title Text */}
+                <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Profile')}>Personal Info</Text>
+
+                {/* Box Shadow */}
+                <View style={{alignItems: 'center', marginTop: 70,}}>
+                    <View style={{backgroundColor: '#fff', borderRadius: 10, width: '90%', height: 360, alignItems: 'center', elevation: 3}}>
+                        <View style={{backgroundColor: '#fff', borderRadius: 10, width: '90%', height: 300, marginTop: 20}}>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Name</Text>
+                                <Text style={styles.textContent}>Daru Marojahan Pakpahan</Text>
                             </View>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Email</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>ragil@omindtech.com</Text>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Email</Text>
+                                <Text style={styles.textContent}>ragil@omindtech.com</Text>
                             </View>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Phone</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>+628112233445</Text>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Phone</Text>
+                                <Text style={styles.textContent}>+628112233445</Text>
                             </View>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Date of Birth</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>21 November 2001</Text>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Date of Birth</Text>
+                                <Text style={styles.textContent}>21 November 2001</Text>
                             </View>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Address</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>Yasmin 69, Bogor</Text>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Address</Text>
+                                <Text style={styles.textContent}>Yasmin 69, Bogor</Text>
                             </View>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Role</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>Junior Frontend Developer</Text>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Role</Text>
+                                <Text style={styles.textContent}>Junior Frontend Developer</Text>
                             </View>
-                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#f2f2f2', borderBottomWidth: 1, paddingBottom: 2}}>
-                                <Text style={{color: '#f2f2f2', marginTop: 21, paddingLeft: 5}}>Hobby</Text>
-                                <Text style={{color: '#f2f2f2', paddingRight: 5, marginTop: 21}}>Buat Masalah</Text>
+                            <View style={{ flexDirection: 'row' , justifyContent: 'space-between', borderBottomColor: '#262734', borderBottomWidth: 1, paddingBottom: 2}}>
+                                <Text style={styles.textContent}>Hobby</Text>
+                                <Text style={styles.textContent}>Buat Masalah</Text>
                             </View>
                         </View>
                     </View>
@@ -53,20 +60,33 @@ export default class PersonalInfoScreen extends Component{
 const styles = StyleSheet.create ({
     container:{
         flex: 1,
-        backgroundColor: '#f2f2f2'
+        backgroundColor: '#f9f9fb'
     },
-    header:{
-        width: 17,
-        height: 17,
-        left: 25,
-        top: 24,
+    rectangleBack:{
+        position: 'absolute',
+        justifyContent:'center',
+        width: 15,
+        height: 15,
+        top: 23,
+        left: 22,       
+        backgroundColor: '#f9f9fb',
+        borderRadius: 2,
     },
-    TextHeader:{
-        fontFamily: 'Poppins-Black',
-        fontSize: 16,
-        fontStyle: 'normal',
-        left: 66,
-        top: 2,
+    textNavigation:{
+        position: 'absolute',
+        left: 47,
+        top: 21,
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
+        lineHeight: 21,    
         color: '#262734',
     },
+    textContent:{
+        color: '#262734', 
+        paddingRight: 5, 
+        marginTop: 21,
+        fontFamily: 'Poppins-Medium',
+        fontSize: 12,
+    },
+
 })

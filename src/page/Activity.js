@@ -10,6 +10,7 @@ import {
     ScrollView,
     Button,
     Touchable,
+    TouchableWithoutFeedback,
     } from 'react-native';
 
 
@@ -27,7 +28,7 @@ export default class ActivityScreen extends Component{
                         <Text style={styles.textMenuActivity}>Activity</Text>
                     </View>
                     <Text style={styles.textMenuHome} onPress={()=>this.props.navigation.navigate('Home')}>Home</Text>
-                    <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notification')}>Notification</Text>
+                    <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notifications')}>Notification</Text>
                 </View>
                 
                 {/* Day View */}
@@ -68,35 +69,42 @@ export default class ActivityScreen extends Component{
                 </View>
 
                 {/* Task Containar */}
-                <View style={{flexDirection: 'row', backgroundColor: '#ffffff', width: 150, height: 105, left: 25, top: 175, position: 'absolute', borderRadius: 10, elevation: 3}}>
-                    <Image 
-                    style={{width: 89.14, height: 90, top: 6}}
-                    source={require('../../assets/images/V_Task.png')} />
-                    <View style={{flexDirection: 'column'}}>
-                        <Text style={{fontSize: 36, fontFamily: 'Poppins-Bold', top: 17}}>10</Text>
-                        <Text style={{fontFamily: 'Poppins-Bold', fontSize: 12}}>Task</Text>
-                        <Text style={{fontFamily: 'Poppins-Light', fontSize: 10}}>Details</Text>
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('Task')}>
+                    <View style={{flexDirection: 'row', backgroundColor: '#ffffff', width: 150, height: 105, left: 25, top: 175, position: 'absolute', borderRadius: 10, elevation: 3}}>
                         <Image 
-                        source={require('../../assets/images/arrow-next.png')}
-                        style={{width: 7, height: 10,left: 40, top: -14}}
-                        />  
-                    </View>  
-                </View>
-                
-                {/* Target Container */}
-                <View style={{flexDirection: 'row', backgroundColor: '#ffffff', width: 150, height: 105, left: 185, top: 175, position: 'absolute', borderRadius: 10, elevation: 3}}>
-                    <Image 
-                    style={{width: 100.03, height: 160, top: -23}}
-                    source={require('../../assets/images/V_Target.png')} />
-                    <View style={{flexDirection: 'column'}}>
-                        <Text style={{fontFamily: 'Poppins-Bold', fontSize: 16, top: 30, left: -15}}>Target</Text>
-                        <Text style={{fontFamily: 'Poppins-Bold', fontSize: 10, top: 28, left: -15}}>this month</Text>
-                        <Text style={{fontSize: 10, fontFamily: 'Poppins-Light', top: 35, left: -15}}>Details</Text>
-                        <Image 
-                        source={require('../../assets/images/arrow-next.png')}
-                        style={{width: 7, height: 10, top:21, left: 25}} />
+                        style={{width: 89.14, height: 90, top: 6}}
+                        source={require('../../assets/images/V_Task.png')} />
+                        <View style={{flexDirection: 'column'}}>
+                            <Text style={{fontSize: 36, fontFamily: 'Poppins-Bold', top: 17}}>10</Text>
+                            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 12}}>Task</Text>
+                            <Text style={{fontFamily: 'Poppins-Light', fontSize: 10}}>Details</Text>
+                            <Image 
+                            source={require('../../assets/images/arrow-next.png')}
+                            style={{width: 7, height: 10,left: 40, top: -14}}
+                            />  
+                        </View>  
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
+
+                {/* Target Container */}
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('Target')} >
+                    <View style={{flexDirection: 'row', backgroundColor: '#ffffff', width: 150, height: 105, left: 185, top: 175, position: 'absolute', borderRadius: 10, elevation: 3}}>
+                        <Image 
+                        style={{width: 100.03, height: 160, top: -23}}
+                        source={require('../../assets/images/V_Target.png')}
+                        onPress={()=>this.props.navigation.navigate('Target')} />
+                        <View style={{flexDirection: 'column'}}>
+                            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 16, top: 30, left: -15}} 
+                            onPress={()=>this.props.navigation.navigate('Target')} >Target</Text>
+                            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 10, top: 28, left: -15}}
+                            onPress={()=>this.props.navigation.navigate('Target')} >this month</Text>
+                            <Text style={{fontSize: 10, fontFamily: 'Poppins-Light', top: 35, left: -15}}>Details</Text>
+                            <Image 
+                            source={require('../../assets/images/arrow-next.png')}
+                            style={{width: 7, height: 10, top:21, left: 25}} />
+                        </View>
+                    </View>
+                </TouchableWithoutFeedback>
                 
                 {/* Text Meeting */}
                 <Text style={{fontFamily: 'Poppins-Bold', fontSize: 16, left: 25, top: 300, position: 'absolute'}}>Meeting</Text>
@@ -117,23 +125,25 @@ export default class ActivityScreen extends Component{
                 onPress={()=>this.props.navigation.navigate('Team')}>Our Team</Text>
                 
                 {/* Ourteam Container */}
-                <View style={{backgroundColor: '#ffffff', width: 310, height: 140, left: 25, top: 476, borderRadius: 10, position: 'absolute', elevation: 3}}>
-                    <View style={{top: 34}}>
-                        <Text style={{fontFamily: 'Poppins-Bold', fontSize: 14, textAlign: 'center',  alignSelf: 'center' }}
-                        onPress={()=>this.props.navigation.navigate('Team')}>See Our Greatest Team {'\n'} From Omindtech</Text>
-                        <Text style={{fontFamily: 'Poppins-Medium', fontSize: 10, top: -60, left: 239}}
-                        onPress={()=>this.props.navigation.navigate('Team')} >View More</Text>
-                        <Image 
-                        style={{width: 7, height: 10, top: -75, left: 295}}
-                        source={require('../../assets/images/arrow-next.png')} />
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('Team')} >
+                    <View style={{backgroundColor: '#ffffff', width: 310, height: 140, left: 25, top: 476, borderRadius: 10, position: 'absolute', elevation: 3}} onPress={()=>this.props.navigation.navigate('Team')}>
+                        <View style={{top: 34}}>
+                            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 14, textAlign: 'center',  alignSelf: 'center' }}
+                            onPress={()=>this.props.navigation.navigate('Team')}>See Our Greatest Team {'\n'} From Omindtech</Text>
+                            <Text style={{fontFamily: 'Poppins-Medium', fontSize: 10, top: -60, left: 239}}
+                            onPress={()=>this.props.navigation.navigate('Team')} >View More</Text>
+                            <Image 
+                            style={{width: 7, height: 10, top: -75, left: 295}}
+                            source={require('../../assets/images/arrow-next.png')} />
+                        </View>
+                        <View>
+                            <Image 
+                            style={{width: 310 , height: 140, top: -71, borderRadius: 10}}
+                            source={require('../../assets/images/V_Ourteam.png')} />
+                        </View>    
+                        
                     </View>
-                    <View>
-                        <Image 
-                        style={{width: 310 , height: 140, top: -71, borderRadius: 10}}
-                        source={require('../../assets/images/V_Ourteam.png')} />
-                    </View>    
-                    
-                </View>
+                </TouchableWithoutFeedback>
                 {/* <View style={{position: 'absolute'}}>
                     <View style={{flexDirection: 'row', padding: 5, width: 310, height: 50, backgroundColor:'pink',left:25 , top: 100, borderRadius: 5}}>
                         <View style={{flexDirection: 'column', justifyContent: 'center', backgroundColor: '#fff', height: 44, width: 35, marginLeft: 2.5, top: -2}}>

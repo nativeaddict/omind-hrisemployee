@@ -24,6 +24,11 @@ import ActivityScreen from './Activity';
 import ProfileScreen from './Profile';
 import PersonalInfoScreen from './Personalinfo';
 import ChangePassScreen from './ChangePass';
+import TeamScreen from './Team';
+import TargetScreen from './Target';
+import TaskScreen from './Task';
+import DetailTaskScreen from './DetailTask';
+import DetailNewsScreen from './DetailNews';
 
 
 
@@ -51,7 +56,11 @@ const MainNavigator = createStackNavigator({
     Profile: {screen: ProfileScreen},
     Personalinfo: {screen: PersonalInfoScreen},
     ChangePass: {screen: ChangePassScreen},
-    
+    Team: {screen: TeamScreen},
+    Target: {screen: TargetScreen},
+    Task: {screen: TaskScreen},
+    DetailTask: {screen: DetailTaskScreen},
+    DetailNews: {screen: DetailNewsScreen},
 
 }, {
     headerMode: 'none',

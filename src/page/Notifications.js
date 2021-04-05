@@ -1,91 +1,271 @@
 import React, {Component} from 'react';
-import {Text, View, TextInput, StyleSheet, SafeAreaView} from 'react-native';
+import {Text, 
+    View,
+    StyleSheet, 
+    SafeAreaView, 
+    ScrollView, 
+    TouchableOpacity,
+    Modal,
+    useWindowDimensions,
+    Dimensions,
+    Image,
+    FlatList,
+    } from 'react-native';
+import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 
-export default class NotificationsScreen extends Component{
-    
-    render(){
-        return(
-            <SafeAreaView style={styles.container}>
-                <View style={styles.scrollView}>
-                    {/* Navbar */}
-                    <View style={styles.navbar}>
-                        <Text style={styles.textMenuActivity} onPress={()=>this.props.navigation.navigate('Activity')}>Activity</Text>
-                        <Text style={styles.textMenuHome} onPress={()=>this.props.navigation.navigate('Home')}>Home</Text>
-                        <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notifications')}>Notification</Text>
-
-                        {/* boxHijau */}
-                        <View style={{alignItems: 'center',}}>
-                            <View style={styles.boxHijau}>
-                                <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
-                                    <View style={{flex: 1,}}>
-                                        <Text style={{paddingLeft: 50, paddingTop: 10, fontFamily: 'Poppins-Bold', fontSize: 12, borderBottomColor: '#262734', borderBottomWidth: 2,}}>Notification</Text>
-                                    </View>
-                                    <View style={{flex: 1,}}>
-                                        <Text style={{paddingLeft: 50 , paddingRight: 50, paddingTop: 10, fontFamily: 'Poppins-Bold', fontSize: 12,borderBottomColor: 'rgba(38, 39, 52, 0.5)', borderBottomWidth: 2, color: 'rgba(38, 39, 52, 0.5)',
-                                    }} onPress={()=>this.props.navigation.navigate('Approval')}>Approval</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
+const NotifRoute = () => (
+    <View style={{ flex: 1, backgroundColor: '#FFFF', width: 310, height: 625, elevation: 3 }}>
+        <FlatList
+                contentContainerStyle={{paddingBottom: 1,}}
+                data={[
+                    {
+                        id: 'Notif1',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap In',
+                        status: 'Your Presence Success',
+                        date: 'Monday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif2',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap In',
+                        status: 'Your Presence Success',
+                        date: 'Tuesday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif3',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Wednesday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif4',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Thursday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif5',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Daily Scrum',
+                        status: 'Your Presence Success',
+                        date: 'Friday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif6',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Sprint Retrospective Meeting',
+                        status: 'Your Presence Success',
+                        date: 'Saturday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif7',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Daily Scrum',
+                        status: 'Your Presence Success',
+                        date: 'Sunday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif8',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap In',
+                        status: 'Your Presence Success',
+                        date: 'Monday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif9',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Tuesday, February 10, 8:40 am',
+                        
+                    },
+                    {
+                        id: 'Notif10',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Tuesday, February 10, 8:40 am',
+                        
+                    },
+                    {
+                        id: 'Notif11',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Tuesday, February 10, 8:40 am',
+                        
+                    },
+                    
+                ]}
+                renderItem={({item}) =>
+                <View style={{flexDirection: 'row', width: 310, height: 59.5, backgroundColor: '#fff', borderBottomColor: '#262734', borderBottomWidth: 0.3,}}>
+                    <Image style={{width: 50, height: 50, left: 10, marginRight: 10}} 
+                    source={item.menuIcon} />
+                    <View style={{flexDirection: 'column'}}>
+                        <Text style={{left: 16, fontFamily: 'Poppins-Bold', fontSize: 12, }}> {item.notifname} </Text>
+                        <Text style={{left: 16, fontFamily: 'Poppins-Medium', fontSize: 10}}> {item.status} </Text>
+                        <Text style={{left: 16, fontFamily: 'Poppins-Light', fontSize: 10}}> {item.date} </Text>
                     </View>
-                </View> 
-            </SafeAreaView>
-        );
-    }
-}
+                </View>
+                }
+                />
+        
+    </View>
+);
+
+const ApprovalRoute = () => (
+    <View style={{ flex: 1, backgroundColor: '#FFFF', width: 310, height: 625, elevation: 3 }}> 
+        <FlatList
+                contentContainerStyle={{paddingBottom: 1,}}
+                data={[
+                    {
+                        id: 'Notif1',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap In',
+                        status: 'Your Presence Success',
+                        date: 'Monday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif2',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap In',
+                        status: 'Your Presence Success',
+                        date: 'Tuesday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif3',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Wednesday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif4',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Tap Out',
+                        status: 'Your Presence Success',
+                        date: 'Thursday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif5',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Daily Scrum',
+                        status: 'Your Presence Success',
+                        date: 'Friday, February 10, 8:40 am',
+                    },
+                    {
+                        id: 'Notif6',
+                        menuIcon: require('../../assets/images/Icon_Mail.png'),
+                        notifname: 'Sprint Retrospective Meeting',
+                        status: 'Your Presence Success',
+                        date: 'Saturday, February 10, 8:40 am',
+                    },
+                    
+                ]}
+                renderItem={({item}) =>
+                <View style={{flexDirection: 'row', width: 310, height: 59.5, backgroundColor: '#fff', borderBottomColor: '#262734', borderBottomWidth: 1,}}>
+                    <Image style={{width: 50, height: 50, left: 10, marginRight: 10}} 
+                    source={item.menuIcon} />
+                    <View style={{flexDirection: 'column'}}>
+                        <Text style={{left: 16, fontFamily: 'Poppins-Bold', fontSize: 12, }}> {item.notifname} </Text>
+                        <Text style={{left: 16, fontFamily: 'Poppins-Medium', fontSize: 10}}> {item.status} </Text>
+                        <Text style={{left: 16, fontFamily: 'Poppins-Light', fontSize: 10}}> {item.date} </Text>
+                    </View>
+                </View>
+                }
+                />
+    </View>
+);
+
+
+const renderTabBar = props => (
+    <TabBar
+      {...props}    
+      indicatorStyle={{ backgroundColor: '#ffff', }}
+      style={{ backgroundColor: 'grey', marginTop: 76, justifyContent: 'center', elevation: 3, width: 310, borderTopLeftRadius: 20, borderTopRightRadius: 20, fontFamily: 'Poppins-Bold', fontSize: 12}}
+    />
+  );
+  
+  export default function TabViewExample() {
+    // constructor(props){
+    //     super(props);
+    // }
+    const layout = useWindowDimensions();
+  
+    const [index, setIndex] = React.useState(0);
+    const [routes] = React.useState([
+      { key: 'notif', title: 'Notification' },
+      { key: 'approv', title: 'Approval' },
+    ]);
+  
+    const renderScene = SceneMap({
+      notif: NotifRoute,
+      approv: ApprovalRoute,
+    });
+
+    return (
+        <View style={styles.container}>
+            <View style={{}}>
+                {/* Navbar */}
+                <Text style={styles.textMenuActivity} onPress={()=>this.props.navigation.navigate('Activity')}>Activity</Text>
+                <Text style={styles.textMenuHome} onPress={()=>this.props.navigation.navigate('Home')}>Home</Text>
+                <View style={styles.selectionMenuNotification}>
+                    <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notification')} >Notification</Text>
+                </View>
+            </View>
+            <View style={{flex: 1, alignItems: 'center'}}>
+                <TabView
+                    renderTabBar={renderTabBar}
+                    navigationState={{ index, routes }}
+                    renderScene={renderScene}
+                    onIndexChange={setIndex}
+                    initialLayout={{ width: layout.width }}
+                />
+            </View>
+        </View>
+    );
+  }
+
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#fff',
     },
-    textMenuActivity: {
+    textMenuActivity:{      
         position: 'absolute',
-        left: 48,
-        top: 22,        
-        fontFamily: 'Poppins-Black',
-        fontSize: 12,
-        lineHeight: 18
+        left: 55,
+        top : 22,
+        color: 'rgba(38, 39, 52, 0.4)',
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
+        lineHeight: 21
     },
-    textMenuHome: {
+    textMenuHome:{
         position: 'absolute',
-        left: 160,
-        top: 22,        
-        fontFamily: 'Poppins-Black',
-        fontSize: 12,
-        lineHeight: 18,
-        color: '#262734'
-
+        left: 158,
+        top : 22,
+        color: 'rgba(38, 39, 52, 0.4)',
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
+        lineHeight: 21
     },
-    textMenuNotification: {
-        position: 'absolute',
-        left: 251,
-        top: 22,        
-        fontFamily: 'Poppins-Black',
-        fontSize: 12,
-        lineHeight: 18
+    textMenuNotification:{     
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
+        lineHeight: 21,
+        color: '#f9f9fb',
+        textAlign: 'center',
     },
-    selectionMenuActivity:{
+    selectionMenuNotification:{
+        justifyContent: 'center',
         position: 'absolute',
-        width: 56,
-        height: 15,
-        left: 300,
-        top: 22,
-        backgroundColor: '#054FFF',
+        width: 98,
+        height: 16,
+        left: 237,
+        top: 25,
+        backgroundColor: '#099f84',
         borderRadius: 50,
     },
-    boxHijau:{
-        flex: 1, 
-        backgroundColor: "#ffffff", 
-        width: '88%',
-        height: 600,
-        marginTop: 60,
-        borderTopRightRadius: 15,
-        borderTopLeftRadius: 15,
-        position: 'absolute',
-        shadowColor:'#000', 
-        shadowOffset: {width: 0, height: 1}, 
-        shadowOpacity: 2, 
-        shadowRadius: 10, 
-        elevation: 5
-    },
-})
+  })

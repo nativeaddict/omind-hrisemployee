@@ -2,87 +2,60 @@ import React, { Component } from 'react';
 import {
     View,
     Text,
-    FlatList,
     Image,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
     StyleSheet,
 } from 'react-native';
 
 export default class SubmissionApplyScreen extends Component{
     constructor(props) {
         super(props);
-        this.state = {
-          images: [
-            require('../../assets/images/Icon_Presence.png'),
-            require('../../assets/images/Icon_Attendance.png'),
-            require('../../assets/images/Icon_Allowance.png'),
-            require('../../assets/images/Icon_Perfomance.png'),
-            require('../../assets/images/Icon_Salary.png'),
-            require('../../assets/images/Icon_Submission.png')
-          ]
-        };
     }
     render(){
         return(
             <View style={styles.container}>
                  {/* Navbar */}
-                 <View style={styles.rectangleBack}>
-                    <Image
-                        style={{position: 'absolute', width: 17, height: 17}}
-                        source={require('../../assets/images/arrow-back.png')}
-                    />                    
-                </View>
-                <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Home')}>Submission Apply</Text>
-                <FlatList
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    // Warning Virtualized List
-                    // keyExtractor={}
-                    data={[
-                        {
-                            id: 'Presence',
-                            menuIcon: require('../../assets/images/Icon_Presence.png'),
-                            menuName: 'Presence',
-                        },
-                        {
-                            id: 'Attendance',
-                            menuIcon: require('../../assets/images/Icon_Attendance.png'),
-                            menuName: 'Attendance',
-                        },
-                        {
-                            id: 'Allowance',
-                            menuIcon: require('../../assets/images/Icon_Allowance.png'),
-                            menuName: 'Allowance',
-                        },
-                        {
-                            id: 'Performance',
-                            menuIcon: require('../../assets/images/Icon_Perfomance.png'),
-                            menuName: 'Performance',
-                        },
-                        {
-                            id: 'Salary',
-                            menuIcon: require('../../assets/images/Icon_Salary.png'),
-                            menuName: 'Salary',
-                        },
-                        {
-                            id: 'Submission',
-                            menuIcon: require('../../assets/images/Icon_Submission.png'),
-                            menuName: 'Submission',
-                        }
-                    ]}                    
-                    renderItem={({item}) =>  
-                    <View style={[styles.rectangleMenu]}>
-                        <Image 
-                        style={{width: 50, height: 50, alignSelf: 'center', resizeMode:'stretch'}}
-                        source={item.menuIcon}/>
-                        <Text 
-                        style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                        onPress={()=>this.props.navigation.navigate('Home', item)}
-                        >
-                        {item.menuName}
-                        </Text>
+                 <TouchableWithoutFeedback onPress={()=>{this.props.navigation.navigate('Submission')}}>
+                    <View style={styles.rectangleBack}>
+                        <Image
+                            style={{position: 'absolute', width: 17, height: 17}}
+                            source={require('../../assets/images/arrow-back.png')}
+                        />
                     </View>
-                    }                
-                />
+                </TouchableWithoutFeedback>
+                <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Submission')}>Submission Apply</Text>
+                <Text style={styles.textFormHeading}>Fill out the form</Text>
+                {/* Form */}
+                <View style={styles.rectangleForm}>
+                    <Text style={{top: 5, left: 10, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Leave type</Text>
+                    <View style={{top: 5, left: 10, width: 290, height: 20, borderColor: '#fff', borderWidth: 1, borderRadius: 5}} accessibilityRole='combobox'>
+
+                    </View>
+
+                    <Text style={{top: 5, left: 10, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Start date</Text>
+                    <View style={{top: 5, left: 10, width: 290, height: 20, borderColor: '#fff', borderWidth: 1, borderRadius: 5}} accessibilityRole='combobox'>
+
+                    </View>
+
+                    <Text style={{top: 5, left: 10, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>End date</Text>
+                    <View style={{top: 5, left: 10, width: 290, height: 20, borderColor: '#fff', borderWidth: 1, borderRadius: 5}} accessibilityRole='combobox'>
+
+                    </View>
+
+                    <Text style={{top: 5, left: 10, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Description</Text>
+                    <View style={{top: 5, left: 10, width: 290, height: 20, borderColor: '#fff', borderWidth: 1, borderRadius: 5}} accessibilityRole='combobox'>
+
+                    </View>
+
+                    <Text style={{top: 5, left: 10, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>File upload</Text>
+                    <View style={{top: 5, left: 10, width: 290, height: 20, borderColor: '#fff', borderWidth: 1, borderRadius: 5}} accessibilityRole='combobox'>
+                        
+                    </View>
+                    <TouchableOpacity style={styles.buttonSubmit}>
+                        <Text style={{fontFamily: 'Poppins-Bold', color: '#f5f9fa', fontSize: 14,}}>Submit</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
         );
@@ -112,16 +85,33 @@ const styles = StyleSheet.create({
         lineHeight: 21,    
         color: '#262734'
     },
-    rectangleMenu:{
-        margin: 5,                
-        justifyContent: 'flex-end',
-        width: 70,
-        height: 70,
-        left: 25,
-        top: 121,       
-        backgroundColor: '#fff',
-        // Change this CSS Shadow
-        elevation: 5,
-        borderRadius: 10,
+    textFormHeading:{
+        position: 'absolute',
+        left: 24,
+        top: 69,
+        fontFamily: 'Poppins-Bold',
+        fontSize: 16,
+        lineHeight: 24,    
+        color: '#262734'
     },
+    rectangleForm:{
+        position: 'absolute',
+        flexDirection: 'column',
+        width: 310,
+        height: 360,
+        left: 25,
+        top: 97,
+        backgroundColor: '#099F84',
+        borderRadius: 10,
+        elevation: 1.5
+    },
+    buttonSubmit:{
+        alignItems: 'center',
+        top: 15,
+        left: 215,
+        width: 85,
+        height: 25,
+        backgroundColor: '#F4997C',
+        borderRadius: 5,
+    }
 })

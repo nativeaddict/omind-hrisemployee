@@ -27,6 +27,42 @@ export default class AllowanceScreen extends Component{
                         source={require('../../assets/images/V_BannerAllowance.png')}
                     />                    
                 </View>
+                {/* Type Allowance */}
+                {/* THR */}
+                <View style={styles.rectangleTHR}> 
+                <Image style={styles.iconProfilePicture}
+                    style={{width: 65, height: 65, alignSelf: 'flex-start'}}
+                    source={require('../../assets/images/Icon_AllowanceTHR.png')} 
+                />                
+                </View>
+                {/* Meal */}
+                <View style={styles.rectangleMeal}> 
+                <Image style={styles.iconProfilePicture}
+                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
+                    source={require('../../assets/images/Icon_AllowanceMeal.png')} 
+                />  
+                </View>
+                {/* Health */}
+                <View style={styles.rectangleHealth}> 
+                <Image style={styles.iconProfilePicture}
+                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
+                    source={require('../../assets/images/Icon_AllowanceHealth.png')} 
+                />  
+                </View>
+                {/* Overtime */}
+                <View style={styles.rectangleOvertime}> 
+                <Image style={styles.iconProfilePicture}
+                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
+                    source={require('../../assets/images/Icon_AllowanceOvertime.png')} 
+                />  
+                </View>
+                {/* Transport */}
+                <View style={styles.rectangleTransport}> 
+                <Image style={styles.iconProfilePicture}
+                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
+                    source={require('../../assets/images/Icon_AllowanceTransport.png')} 
+                />  
+                </View>
             </View>
         );
     }
@@ -66,5 +102,60 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 10,
         elevation: 1.5
+    },
+    rectangleTHR:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 310,
+        height: 60,
+        left: 25,
+        top: 235,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        elevation: 0.5
+    },
+    rectangleMeal:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 150,
+        height: 60,
+        left: 25,
+        top: 305,        
+        backgroundColor: '#054FFF',
+        borderRadius: 10,
+        elevation: 1.5
+    },
+    rectangleHealth:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 150,
+        height: 60,
+        left: 185,
+        top: 305,        
+        backgroundColor: '#FBB03B',
+        borderRadius: 10,    
+        elevation: 1.5    
+    },
+    rectangleTransport:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 150,
+        height: 60,
+        left: 25,
+        top: 375,
+        backgroundColor: '#23395d',
+        borderRadius: 10,
+        elevation: 1.5
+    },
+    rectangleOvertime:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 150,
+        height: 60,
+        left: 185,
+        top: 375,        
+        backgroundColor: '#f15a25',
+        borderRadius: 10,   
+        elevation: 1.5           
     },
 })

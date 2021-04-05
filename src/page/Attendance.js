@@ -3,7 +3,11 @@ import {
     View, 
     Text, 
     Image,
-    StyleSheet
+    FlatList,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
+    StyleSheet,
+    Alert
 } from 'react-native';
 
 export default class AttendanceScreen extends Component{
@@ -12,12 +16,14 @@ export default class AttendanceScreen extends Component{
         return(
             <View style={styles.container}>
                 {/* Navbar */}
-                <View style={styles.rectangleBack}>
-                    <Image
-                        style={{position: 'absolute', width: 17, height: 17}}
-                        source={require('../../assets/images/arrow-back.png')}
-                    />                    
-                </View>
+                <TouchableWithoutFeedback onPress={()=>{this.props.navigation.navigate('Home')}}>
+                    <View style={styles.rectangleBack}>
+                        <Image
+                            style={{position: 'absolute', width: 17, height: 17}}
+                            source={require('../../assets/images/arrow-back.png')}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
                 <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Home')}>Attendance</Text>
                 {/* Banner */}
                 <View style={styles.bannerAttendance}>
@@ -30,16 +36,102 @@ export default class AttendanceScreen extends Component{
                 {/* Attendance */}
                 <Text style={styles.textAttendanceHeading}>Your attendance this month</Text>
                 <View style={styles.rectanglePresent}>
-
+                    <View style={styles.ellipsePresent}>
+                        <Image 
+                            style={{width:70, height:100}}
+                            source={require('../../assets/images/Icon_Present.png')}                            
+                            />
+                    </View>
+                    <Text style={{top: 5, left: 85, fontFamily: 'Poppins-Black', fontSize: 48, color: '#f5f9fa'}}>15</Text>
+                    <Text style={{top: -20, left: 85, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#f5f9fa'}}>Present</Text>
                 </View>
-                <View style={styles.rectangleAbsent}>
 
+                <View style={styles.rectangleAbsent}>
+                    <View style={styles.ellipseAbsent}>
+                        <Image
+                            style={{width: 55, height: 55}}
+                            source={require('../../assets/images/Icon_Absent.png')}
+                        />
+                    </View>
+                    <Text style={{left: 70, top: 8, fontFamily: 'Poppins-Black', fontSize: 36, color: '#f5f9fa'}}>2</Text>
+                    <Text style={{left: 70, top: -14, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#f5f9fa'}}>Absent</Text>
                 </View>
                 <View style={styles.rectanglePercentage}> 
-
+                    <Text style={{left: 10, top: 5, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#f5f9fa'}}>Percentage</Text>
+                    <Text style={{left: 10, top: -10, fontFamily: 'Poppins-Black', fontSize: 36, color: '#f5f9fa'}}>70%</Text>
                 </View>
                 {/* Attendance Recap */}
                 <Text style={styles.textAttendanceRecapHeading}>Attendance Recap</Text>
+                <FlatList 
+                        style={{top: 452, left: 25}}                        
+                        showsVerticalScrollIndicator={true}
+                        contentContainerStyle={{paddingBottom: 40}}            
+                        ListFooterComponent={<View style={{height:410}}/>}
+                        data={[
+                            {
+                                id: 'jan',
+                                month: 'January'                                                
+                            },
+                            {
+                                id: 'feb',
+                                month: 'February'                                
+                            },
+                            {
+                                id: 'mar',
+                                month: 'March'                                
+                            },
+                            {
+                                id: 'apr',
+                                month: 'April'                                
+                            },
+                            {
+                                id: 'may',
+                                month: 'May'                                
+                            },
+                            {
+                                id: 'jun',
+                                month: 'June'                                
+                            },
+                            {
+                                id: 'jul',
+                                month: 'July'                                
+                            },
+                            {
+                                id: 'aug',
+                                month: 'August'                                
+                            },
+                            {
+                                id: 'sep',
+                                month: 'September'                                
+                            },
+                            {
+                                id: 'oct',
+                                month: 'October'                                
+                            },
+                            {
+                                id: 'nov',
+                                month: 'November'                                
+                            },
+                            {
+                                id: 'dec',
+                                month: 'December'                                
+                            },
+                        ]}                    
+                        renderItem={({item}) =>  
+                        <TouchableWithoutFeedback onPress={()=>{Alert.alert(item.id)}}>    
+                            <View style={styles.rectangleHistory}>                        
+                                <Text 
+                                style={{left: 20, top: 5, fontSize: 14, fontFamily: 'Poppins-SemiBold', color: '#262734'}}                            
+                                >
+                                {item.month}
+                                </Text>
+                                <Image 
+                                style={{right: 10, bottom: 17, width: 15, height: 15, alignSelf: 'flex-end'}}
+                                source={require('../../assets/images/arrow-next2.png')}/>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        }                
+                    />             
             </View>
         );
     }
@@ -91,6 +183,7 @@ const styles = StyleSheet.create({
     },
     rectanglePresent:{ 
         position: 'absolute',
+        justifyContent: 'center',
         width: 151,
         height: 140,
         left: 25,
@@ -98,14 +191,37 @@ const styles = StyleSheet.create({
         backgroundColor: '#099F84',
         borderRadius: 10,
     },
+    ellipsePresent:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 75,
+        height: 140,
+        backgroundColor: '#F4997C',
+        borderBottomEndRadius: 50,
+        borderTopEndRadius: 50,
+        borderTopStartRadius: 10,
+        borderBottomStartRadius: 10
+    },
     rectangleAbsent:{
         position: 'absolute',
+        justifyContent: 'center',
         width: 151,
         height: 60,
         left: 185,
         top: 264,
         backgroundColor: '#099F84',
         borderRadius: 10,
+    },
+    ellipseAbsent:{
+        position: 'absolute',
+        justifyContent: 'center',
+        width: 60,
+        height: 60,
+        backgroundColor: '#F4997C',
+        borderBottomEndRadius: 50,
+        borderTopEndRadius: 50,
+        borderTopStartRadius: 10,
+        borderBottomStartRadius: 10
     },
     rectanglePercentage:{
         position: 'absolute',
@@ -124,5 +240,15 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         color: '#262734'
+    },
+    rectangleHistory:{     
+        marginBottom: 15,  
+        // justifyContent: 'center',
+        width: 310,
+        height: 30,       
+        backgroundColor: '#fff',
+        // Change this CSS Shadow
+        elevation: 0.5,
+        borderRadius: 10,
     }
 })

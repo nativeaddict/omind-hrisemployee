@@ -3,45 +3,58 @@ import {
     View, 
     Text, 
     Image,
+    Alert,
     TouchableOpacity,
-    StyleSheet
+    TouchableWithoutFeedback,
+    StyleSheet,
+    TouchableHighlight,    
 } from 'react-native';
 
 export default class PresenceScreen extends Component{
-    
+    constructor(props){
+        super(props);
+        this.state = {
+            pressedHappy: false,
+            pressedSad: false,
+            pressedChill: false,
+            pressedConfused: false,
+        };
+    }
     render(){
         return(
             <View style={styles.container}>
                 {/* Navbar */}
-                <View style={styles.rectangleBack}>
-                    <Image
-                        style={{position: 'absolute', width: 17, height: 17}}
-                        source={require('../../assets/images/arrow-back.png')}
-                    />
-                </View>
-                <Text style={styles.textYourLocation} onPress={()=>this.props.navigation.navigate('Home')}>Your Location</Text>
+                <TouchableWithoutFeedback onPress={()=>{this.props.navigation.navigate('Home')}}>
+                    <View style={styles.rectangleBack}>
+                        <Image
+                            style={{position: 'absolute', width: 17, height: 17}}
+                            source={require('../../assets/images/arrow-back.png')}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
+                <Text style={styles.textYourLocation}>Your Location</Text>
                 <Text style={styles.textCurrentLocation}>Jl. Kenangan IV No. 18</Text>
                 {/* Header */}
                 <Text style={styles.textClock}>09.09 AM</Text> 
                 {/* Information */}
-                <View style={styles.rectangleAnnouncement}>
+                <View style={[styles.rectangleAnnouncement]}>
                     <View style={styles.ellipseSmall}></View>
                     <Image 
                         style={{position: 'absolute', left: 7, width: 35, height: 35}}
                         source={require('../../assets/images/Icon_Announcement.png')}/>
                     <Text style={{position: 'absolute', left: 60, width: 115, fontFamily: 'Poppins-Medium', fontSize: 12, lineHeight: 18}}
-                    onPress={()=>this.props.navigation.navigate('Home')}>You’re not{'\n'}Clock In yet today!</Text>
+                    >You’re not{'\n'}Clock In yet today!</Text>
                 </View>
                 {/* Presence */}
                 <Text style={styles.textPresenceHeading}>Press the button!</Text>
-                <TouchableOpacity style={styles.buttonClockIn}>
+                <TouchableOpacity style={styles.buttonClockIn} onPress={()=>{Alert.alert('Clock In')}}>
                     <Image 
                         style={{top: 10, position: 'absolute', width: 55, height: 55}}
                         source={require('../../assets/images/Icon_ClockIn.png')}
                     /> 
                     <Text style={{top: 65, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#262734'}}>Clock In</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonClockOut}>
+                <TouchableOpacity style={styles.buttonClockOut} disabled={true}>
                     <Image 
                         style={{top: 10, position: 'absolute', width: 55, height: 55}}
                         source={require('../../assets/images/Icon_ClockOut.png')}
@@ -51,29 +64,108 @@ export default class PresenceScreen extends Component{
                 {/* Feel */}
                 <Text style={styles.textFeelHeading}>How was your day?</Text>
                 <View style={styles.rectangleFeel}>
-                    <Image 
-                        style={{width: 70, height: 70}}
-                        source={require('../../assets/images/Icon_Happy.png')}/>
-                    <Image 
-                        style={{width: 70, height: 70}}
-                        source={require('../../assets/images/Icon_Sad.png')}/>
-                    <Image 
-                        style={{width: 70, height: 70}}
-                        source={require('../../assets/images/Icon_Sleepy.png')}/>  
-                    <Image 
-                        style={{width: 70, height: 70}}
-                        source={require('../../assets/images/Icon_Confused.png')}/>                       
+                    {/* Happy */}
+                    <TouchableHighlight
+                        disabled={true}
+                        onPress={()=>{
+                            Alert.alert('Happy')
+                        }}
+                        style={[
+                            styles.viewFeel,
+                            this.state.pressedHappy ? {backgroundColor: '#099f84'} : {}
+                        ]}
+                        onHideUnderlay={()=> {
+                            this.setState({pressedHappy: false});
+                        }}
+                        onShowUnderlay={()=> {
+                            this.setState({pressedHappy: true});
+                        }}
+                    >
+                        <View>
+                            <Image 
+                                style={{width: 70, height: 70}}
+                                source={require('../../assets/images/Icon_Happy.png')}/>
+                        </View>                        
+                    </TouchableHighlight>
+                    {/* Sad */}
+                    <TouchableHighlight
+                        onPress={()=>{
+                            Alert.alert('Sad')
+                        }}
+                        style={[
+                            styles.viewFeel,
+                            this.state.pressedSad ? {backgroundColor: '#099f84'} : {}
+                        ]}
+                        onHideUnderlay={()=> {
+                            this.setState({pressedSad: false});
+                        }}
+                        onShowUnderlay={()=> {
+                            this.setState({pressedSad: true});
+                        }}
+                    >
+                        <View>
+                            <Image 
+                                style={{width: 70, height: 70}}
+                                source={require('../../assets/images/Icon_Sad.png')}/>    
+                        </View>
+                    </TouchableHighlight>
+                    {/* Chill */}
+                    <TouchableHighlight
+                        onPress={()=>{
+                            Alert.alert('Chill')
+                        }}
+                        style={[
+                            styles.viewFeel,
+                            this.state.pressedChill ? {backgroundColor: '#099f84'} : {}
+                        ]}
+                        onHideUnderlay={()=> {
+                            this.setState({pressedChill: false});
+                        }}
+                        onShowUnderlay={()=> {
+                            this.setState({pressedChill: true});
+                        }}
+                    >
+                        <View>
+                            <Image 
+                            style={{width: 70, height: 70}}
+                            source={require('../../assets/images/Icon_Sleepy.png')}/>     
+                        </View>
+                    </TouchableHighlight>
+                    {/* Confused */}
+                    <TouchableHighlight
+                        onPress={()=>{
+                            Alert.alert('Confused')
+                        }}
+                        style={[
+                            styles.viewFeel,
+                            this.state.pressedConfused ? {backgroundColor: '#099f84'} : {}
+                        ]}
+                        onHideUnderlay={()=> {
+                            this.setState({pressedConfused: false});
+                        }}
+                        onShowUnderlay={()=> {
+                            this.setState({pressedConfused: true});
+                        }}
+                    >
+                        <View>
+                            <Image 
+                                style={{width: 70, height: 70}}
+                                source={require('../../assets/images/Icon_Confused.png')}/>        
+                        </View>
+                    </TouchableHighlight>                                                       
                 </View>
                 {/* History */}
-                <View style={styles.rectanglePresenceHistory}>
-                    <Text style={{left: 30, fontFamily: 'Poppins-Bold', fontSize: 14}} onPress={()=>this.props.navigation.navigate('PresenceHistory')}>Presence History</Text>
-                    {/* <View style={{left: 90, position: 'absolute', width: 12, height: 12, borderRadius: 100, backgroundColor: '#099F84'}}/> */}
-                    <View style={{left: 270, position: 'absolute', width: 20, height: 20, borderRadius: 100, backgroundColor: '#099F84', alignSelf: 'center'}}>
-                        <Image 
-                        style={{top: 2, width: 15, height: 15, alignSelf: 'center'}}
-                        source={require('../../assets/images/arrow-next.png')}/>
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('PresenceHistory')}>
+                    <View style={styles.rectanglePresenceHistory}>
+                        <Text style={{left: 30, fontFamily: 'Poppins-Bold', fontSize: 14}}>Presence History</Text>                        
+                        <View style={{left: 270, position: 'absolute', width: 20, height: 20, borderRadius: 100, backgroundColor: '#099F84', alignSelf: 'center'}}>
+                            <Image 
+                            style={{top: 2, width: 15, height: 15, alignSelf: 'center'}}
+                            source={require('../../assets/images/arrow-next.png')}/>
+                        </View>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
+                
             </View>
         );
     }
@@ -175,6 +267,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 20,
         elevation: 1.5
+    },
+    buttonDisabled:{
+        width: 85,
+        height: 85,
+        backgroundColor: '#262734',
+        borderRadius: 20,
+        elevation: 1.5
+    },
+    viewFeel:{
+        backfaceVisibility: 'visible',
+        width: 70,
+        height: 70,
+        borderRadius: 90,
+        backgroundColor: '#fff'
     },
     textFeelHeading:{
         position: 'absolute',

@@ -29,7 +29,7 @@ export default class PayslipScreen extends Component{
                             source={require('../../assets/images/Icon_Salary.png')}
                         />
                     </View>
-                    <Text style={{top: 10, left: 20,fontFamily: 'Poppins-Black', fontSize: 24, textAlign: 'center'}}>Rp.10.510.000</Text>
+                    <Text style={{top: 10, left: 90, fontFamily: 'Poppins-Black', fontSize: 24}}>Rp. 10.510.000</Text>
                     <Text style={{left: 90,fontFamily: 'Poppins-Bold', fontSize: 12}}>in Total</Text>
                 </View>
                 {/* Salary Information */}

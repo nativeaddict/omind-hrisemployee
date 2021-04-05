@@ -5,11 +5,7 @@ import {
     Image, 
     TouchableOpacity,
     StyleSheet,
-    SafeAreaView,
     FlatList,
-    ScrollView,
-    StatusBar,
-    Button,
     TouchableWithoutFeedback
     } 
 from 'react-native';
@@ -32,16 +28,16 @@ export default class HomeScreen extends Component{
                 onPress={()=>this.props.navigation.navigate('Profile')} >Hello, Barud Tampubolon!</Text>
                     {/* Profile Picture */}
                 {/* MASIH BUG PENCET FOTO BELOM KE NAVIGATE */}
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate('Profile')}>
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('Profile')}>
                     <Image style={styles.iconProfilePicture}
                     source={require('../../assets/images/I_ProfilePicture_Barud.png')} 
                     />
-                </TouchableOpacity>    
+                </TouchableWithoutFeedback>    
 
                 {/* Menu */}
                 {/* <View> */}
                     <FlatList 
-                        style={{top: 121, left: 25}}
+                        style={{top: 121, left: 25, maxHeight: 80}}
                         contentContainerStyle={{paddingRight: 45}}
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}

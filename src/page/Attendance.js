@@ -6,7 +6,8 @@ import {
     FlatList,
     TouchableWithoutFeedback,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    Alert
 } from 'react-native';
 
 export default class AttendanceScreen extends Component{
@@ -62,7 +63,7 @@ export default class AttendanceScreen extends Component{
                 {/* Attendance Recap */}
                 <Text style={styles.textAttendanceRecapHeading}>Attendance Recap</Text>
                 <FlatList 
-                        style={{top: 452, left: 25, flex: 1}}                        
+                        style={{top: 452, left: 25}}                        
                         showsVerticalScrollIndicator={true}
                         contentContainerStyle={{paddingBottom: 40}}            
                         ListFooterComponent={<View style={{height:410}}/>}
@@ -117,16 +118,18 @@ export default class AttendanceScreen extends Component{
                             },
                         ]}                    
                         renderItem={({item}) =>  
-                        <TouchableOpacity style={styles.rectangleHistory}>                            
-                            <Text 
-                            style={{left: 20, fontSize: 14, fontFamily: 'Poppins-SemiBold', color: '#262734'}}                            
-                            >
-                            {item.month}
-                            </Text>
-                            <Image 
-                            style={{width: 10, height: 10, alignSelf: 'flex-end'}}
-                            source={require('../../assets/images/arrow-next2.png')}/>
-                        </TouchableOpacity>
+                        <TouchableWithoutFeedback onPress={()=>{Alert.alert(item.id)}}>    
+                            <View style={styles.rectangleHistory}>                        
+                                <Text 
+                                style={{left: 20, top: 5, fontSize: 14, fontFamily: 'Poppins-SemiBold', color: '#262734'}}                            
+                                >
+                                {item.month}
+                                </Text>
+                                <Image 
+                                style={{right: 10, bottom: 17, width: 15, height: 15, alignSelf: 'flex-end'}}
+                                source={require('../../assets/images/arrow-next2.png')}/>
+                            </View>
+                        </TouchableWithoutFeedback>
                         }                
                     />             
             </View>
@@ -238,14 +241,11 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         color: '#262734'
     },
-    rectangleHistory:{   
-        flex: 1,   
-        marginBottom: 20,  
-        justifyContent: 'center',
+    rectangleHistory:{     
+        marginBottom: 15,  
+        // justifyContent: 'center',
         width: 310,
-        height: 30,
-        // left: 25,
-        // top: 121,       
+        height: 30,       
         backgroundColor: '#fff',
         // Change this CSS Shadow
         elevation: 0.5,

@@ -4,6 +4,7 @@ import {
     Text, 
     Image,
     TouchableOpacity,
+    TouchableWithoutFeedback,
     FlatList,
     StyleSheet
 } from 'react-native';
@@ -17,16 +18,19 @@ export default class SubmissionScreen extends Component{
         return(
             <View style={styles.container}>
                  {/* Navbar */}
-                 <View style={styles.rectangleBack}>
-                    <Image
-                        style={{position: 'absolute', width: 17, height: 17}}
-                        source={require('../../assets/images/arrow-back.png')}
-                    />                    
-                </View>
+                <TouchableWithoutFeedback onPress={()=>{this.props.navigation.navigate('Home')}}>
+                    <View style={styles.rectangleBack}>
+                        <Image
+                            style={{position: 'absolute', width: 17, height: 17}}
+                            source={require('../../assets/images/arrow-back.png')}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
                 <Text style={styles.textNavigation} onPress={()=>this.props.navigation.navigate('Home')}>Submission</Text>
                 {/* Leave Card */}
                 <Text style={styles.textLeaveCardHeading}>Leave Card</Text>
                 <FlatList 
+                    style={{left: 25, top: 102, maxHeight: 112}}
                     contentContainerStyle={{paddingRight: 45}}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
@@ -80,12 +84,23 @@ export default class SubmissionScreen extends Component{
                 <Text style={styles.textHistoryHeading}>History</Text>
                 <Text style={styles.textSeeMoreHistory} onPress={()=>this.props.navigation.navigate('SubmissionHistory')}>See More</Text>
                 <View style={styles.rectangleHistory}>
-
+                    <View style={styles.ellipseHistory}>
+                        <Image 
+                            style={{width: 90, height: 90}}
+                            source={require('../../assets/images/Icon_HistorySubmission.png')}
+                        />
+                    </View>
+                    <Text style={{left: 115, color: '#262734', fontFamily: 'Poppins-Bold', fontSize: 16}}>Annual Leave</Text>
+                    <Text style={{left: 115, color: '#262734', fontFamily: 'Poppins-Medium', fontSize: 12}}>Leave from:{'\t'}{'\t'}21/01/2021</Text>
+                    <Text style={{left: 115, color: '#262734', fontFamily: 'Poppins-Medium', fontSize: 12}}>Until:{'\t'}{'\t'}{'\t'}{'\t'}{'\t'}{'\t'}22/02/2021</Text>    
+                    <Text style={{left: 115, color: '#262734', fontFamily: 'Poppins-Medium', fontSize: 12}}>Status:</Text>
+                    <View style={{justifyContent: 'center', bottom: 17, width: 65, height: 15, left: 205, backgroundColor: '#F15A25',borderRadius: 5}}>
+                        <Text style={{color: '#fff', fontFamily: 'Poppins-Medium', fontSize: 12, textAlign: 'center'}}>Rejected</Text>
+                    </View>                    
                 </View>
                 <TouchableOpacity style={styles.buttonApplySubmission} onPress={()=>this.props.navigation.navigate('SubmissionApply')}>
                     <Text style={{fontFamily: 'Poppins-Bold', fontSize: 16, textAlign: 'center', color: '#f9f9fb'}}>Apply for Leave</Text>
                 </TouchableOpacity>
-
             </View>
         );
     }
@@ -129,9 +144,7 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
         width: 100,
-        height: 100,
-        left: 25,
-        top: 102,
+        height: 100,       
         backgroundColor: '#099F84',
         borderRadius: 10,
         elevation: 1.5
@@ -171,6 +184,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 10,
         elevation: 1.5
+    },
+    ellipseHistory:{
+        position: 'absolute',
+        // justifyContent: 'center',
+        width: 100,
+        height: 100,
+        backgroundColor: '#099F84',
+        borderBottomEndRadius: 50,
+        borderTopEndRadius: 50,
+        borderTopStartRadius: 10,
+        borderBottomStartRadius: 10
     },
     buttonApplySubmission:{
         position: 'absolute',

@@ -30,38 +30,49 @@ export default class AllowanceScreen extends Component{
                 {/* Type Allowance */}
                 {/* THR */}
                 <View style={styles.rectangleTHR}> 
-                <Image style={styles.iconProfilePicture}
-                    style={{width: 65, height: 65, alignSelf: 'flex-start'}}
-                    source={require('../../assets/images/Icon_AllowanceTHR.png')} 
-                />                
+                    <Image style={styles.iconProfilePicture}
+                        style={{width: 65, height: 65, alignSelf: 'flex-start'}}
+                        source={require('../../assets/images/Icon_AllowanceTHR.png')}
+                        
+                    /> 
+                    <Text style={{bottom: 55, left: 75, fontFamily: 'Poppins-Medium', color: '#262734'}}>Tunjangan Hari Raya</Text>
+                    <Text style={{bottom: 58, left: 75, fontFamily: 'Poppins-Bold', color: '#262734'}}>Rp. 5000000</Text>
                 </View>
                 {/* Meal */}
-                <View style={styles.rectangleMeal}> 
-                <Image style={styles.iconProfilePicture}
-                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
-                    source={require('../../assets/images/Icon_AllowanceMeal.png')} 
-                />  
+                <View style={styles.rectangleMeal}>                 
+                    <Image style={styles.iconProfilePicture}
+                        style={{width: 60, height: 60, alignSelf: 'flex-start'}}
+                        source={require('../../assets/images/Icon_AllowanceMeal.png')} 
+                    />  
+                    <Text style={{bottom: 50, left: 65, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Meal</Text>
+                    <Text style={{bottom: 50, left: 65, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#fff'}}>Rp. 500000</Text>
                 </View>
                 {/* Health */}
                 <View style={styles.rectangleHealth}> 
-                <Image style={styles.iconProfilePicture}
-                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
-                    source={require('../../assets/images/Icon_AllowanceHealth.png')} 
-                />  
+                    <Image style={styles.iconProfilePicture}
+                        style={{top: 5, width: 50, height: 50, alignSelf: 'flex-start'}}
+                        source={require('../../assets/images/Icon_AllowanceHealth.png')} 
+                    />  
+                    <Text style={{bottom: 40, left: 55, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Health</Text>
+                    <Text style={{bottom: 40, left: 55, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#fff'}}>Rp. 500000</Text>
                 </View>
                 {/* Overtime */}
                 <View style={styles.rectangleOvertime}> 
-                <Image style={styles.iconProfilePicture}
-                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
-                    source={require('../../assets/images/Icon_AllowanceOvertime.png')} 
-                />  
+                    <Image style={styles.iconProfilePicture}
+                        style={{top: 5, width: 50, height: 50, alignSelf: 'flex-start'}}
+                        source={require('../../assets/images/Icon_AllowanceOvertime.png')} 
+                    />
+                    <Text style={{bottom: 40, left: 55, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Overtime</Text>
+                    <Text style={{bottom: 40, left: 55, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#fff'}}>Rp. 500000</Text>
                 </View>
                 {/* Transport */}
                 <View style={styles.rectangleTransport}> 
-                <Image style={styles.iconProfilePicture}
-                    style={{width: 50, height: 50, alignSelf: 'flex-start'}}
-                    source={require('../../assets/images/Icon_AllowanceTransport.png')} 
-                />  
+                    <Image style={styles.iconProfilePicture}
+                        style={{top: 5, width: 50, height: 50, alignSelf: 'flex-start'}}
+                        source={require('../../assets/images/Icon_AllowanceTransport.png')} 
+                    />  
+                    <Text style={{bottom: 40, left: 55, fontFamily: 'Poppins-Medium', fontSize: 12, color: '#fff'}}>Transport</Text>
+                    <Text style={{bottom: 40, left: 55, fontFamily: 'Poppins-Bold', fontSize: 12, color: '#fff'}}>Rp. 500000</Text>
                 </View>
             </View>
         );
@@ -104,8 +115,7 @@ const styles = StyleSheet.create({
         elevation: 1.5
     },
     rectangleTHR:{
-        position: 'absolute',
-        justifyContent: 'center',
+        position: 'absolute',        
         width: 310,
         height: 60,
         left: 25,
@@ -115,8 +125,7 @@ const styles = StyleSheet.create({
         elevation: 0.5
     },
     rectangleMeal:{
-        position: 'absolute',
-        justifyContent: 'center',
+        position: 'absolute',        
         width: 150,
         height: 60,
         left: 25,
@@ -127,7 +136,6 @@ const styles = StyleSheet.create({
     },
     rectangleHealth:{
         position: 'absolute',
-        justifyContent: 'center',
         width: 150,
         height: 60,
         left: 185,
@@ -138,7 +146,6 @@ const styles = StyleSheet.create({
     },
     rectangleTransport:{
         position: 'absolute',
-        justifyContent: 'center',
         width: 150,
         height: 60,
         left: 25,
@@ -149,7 +156,6 @@ const styles = StyleSheet.create({
     },
     rectangleOvertime:{
         position: 'absolute',
-        justifyContent: 'center',
         width: 150,
         height: 60,
         left: 185,

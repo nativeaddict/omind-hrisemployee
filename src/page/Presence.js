@@ -157,12 +157,12 @@ export default class PresenceScreen extends Component{
                 {/* History */}
                 <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('PresenceHistory')}>
                     <View style={styles.rectanglePresenceHistory}>
-                        <Text style={{left: 30, fontFamily: 'Poppins-Bold', fontSize: 14}}>Presence History</Text>                        
-                        <View style={{left: 270, position: 'absolute', width: 20, height: 20, borderRadius: 100, backgroundColor: '#099F84', alignSelf: 'center'}}>
-                            <Image 
-                            style={{top: 2, width: 15, height: 15, alignSelf: 'center'}}
-                            source={require('../../assets/images/arrow-next.png')}/>
-                        </View>
+                        <Text style={{top: 10, left: 30, fontFamily: 'Poppins-Bold', fontSize: 14}}>Presence History</Text>                        
+                        {/* <View style={{left: 270, position: 'absolute', width: 20, height: 20, borderRadius: 100, backgroundColor: '#099F84', alignSelf: 'center'}}> */}
+                        <Image 
+                            style={{right: 20, bottom: 13, width: 20, height: 20, alignSelf: 'flex-end'}}
+                            source={require('../../assets/images/arrow-next2.png')}/>
+                        {/* </View> */}
                     </View>
                 </TouchableWithoutFeedback>
                 

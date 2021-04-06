@@ -5,121 +5,96 @@ import {
     Image, 
     TouchableOpacity,
     StyleSheet,
-    SafeAreaView,
     FlatList,
-    ScrollView,
-    StatusBar,
-    Button
+    TouchableWithoutFeedback
     } 
 from 'react-native';
 
-
 export default class HomeScreen extends Component{
-    
-    constructor(props){
+    constructor(props) {
         super(props);
     }
     render(){ 
-        return(
-            <SafeAreaView style={styles.container}>
-                <View>
-                    {/* Navbar */}
-                    <Text style={styles.textMenuActivity} onPress={()=>this.props.navigation.navigate('Activity')}>Activity</Text>
-                    <View style={styles.selectionMenuHome}>
-                        <Text style={styles.textMenuHome}>Home</Text>
-                    </View>
-                    <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notifications')}>Notification</Text>
-                    {/* Name */}   
-                    <Text style={styles.textNameHeading} 
-                    onPress={()=>this.props.navigation.navigate('Profile')} >Hello, Barud Tampubolon!</Text>
-                        {/* Profile Picture */}
-                    {/* MASIH BUG PENCET FOTO BELOM KE NAVIGATE */}
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Profile')}>
-                        <Image style={styles.iconProfilePicture}
-                        source={require('../../assets/images/I_ProfilePicture_Barud.png')} 
-                        />
-                    </TouchableOpacity>    
+        return(            
+            <View style={styles.container}>
+                {/* Navbar */}
+                <Text style={styles.textMenuActivity} onPress={()=>this.props.navigation.navigate('Activity')}>Activity</Text>
+                <View style={styles.selectionMenuHome}>
+                    <Text style={styles.textMenuHome}>Home</Text>
+                </View>
+                <Text style={styles.textMenuNotification} onPress={()=>this.props.navigation.navigate('Notifications')}>Notification</Text>
+                {/* Name */}   
+                <Text style={styles.textNameHeading} 
+                onPress={()=>this.props.navigation.navigate('Profile')} >Hello, Barud Tampubolon!</Text>
+                    {/* Profile Picture */}
+                {/* MASIH BUG PENCET FOTO BELOM KE NAVIGATE */}
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('Profile')}>
+                    <Image style={styles.iconProfilePicture}
+                    source={require('../../assets/images/I_ProfilePicture_Barud.png')} 
+                    />
+                </TouchableWithoutFeedback>    
 
-                    {/* Menu */}
-                    <View style={{flexDirection: 'row'}}> 
-                        {/* Presence */}
-                        <View style={styles.rectangleMenuPresence}>
+                {/* Menu */}
+                {/* <View> */}
+                    <FlatList 
+                        style={{top: 121, left: 25, maxHeight: 80}}
+                        contentContainerStyle={{paddingRight: 45}}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        data={[
+                            {
+                                id: 'Presence',
+                                menuIcon: require('../../assets/images/Icon_Presence.png'),
+                                menuName: 'Presence',
+                            },
+                            {
+                                id: 'Attendance',
+                                menuIcon: require('../../assets/images/Icon_Attendance.png'),
+                                menuName: 'Attendance',
+                            },
+                            {
+                                id: 'Allowance',
+                                menuIcon: require('../../assets/images/Icon_Allowance.png'),
+                                menuName: 'Allowance',
+                            },
+                            {
+                                id: 'Performance',
+                                menuIcon: require('../../assets/images/Icon_Perfomance.png'),
+                                menuName: 'Performance',
+                            },
+                            {
+                                id: 'Payslip',
+                                menuIcon: require('../../assets/images/Icon_Salary.png'),
+                                menuName: 'Salary',
+                            },
+                            {
+                                id: 'Submission',
+                                menuIcon: require('../../assets/images/Icon_Submission.png'),
+                                menuName: 'Submission',
+                            }
+                        ]}                    
+                        renderItem={({item}) =>  
+                        <TouchableOpacity style={styles.rectangleMenu} onPress={()=>this.props.navigation.navigate(item.id)}>
                             <Image 
                             style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../assets/images/Icon_Presence.png')}/>
+                            source={item.menuIcon}/>
                             <Text 
                             style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Presence')}
+                            
                             >
-                            Presence
+                            {item.menuName}
                             </Text>
-                        </View>
-                        {/* Attendance */}
-                        <View style={styles.rectangleMenuAttendance}>
-                            <Image 
-                            style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../assets/images/Icon_Attendance.png')}/>
-                            <Text 
-                            style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Attendance')}
-                            >
-                            Attendance
-                            </Text>
-                        </View>
-                        {/* Allowance */}
-                        <View style={styles.rectangleMenuAllowance}>
-                            <Image 
-                            style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../assets/images/Icon_Allowance.png')}/>
-                            <Text 
-                            style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Allowance')}
-                            >
-                            Allowance
-                            </Text>
-                        </View>
-                        {/* Perfomance */}
-                        <View style={styles.rectangleMenuPerformance}>
-                            <Image 
-                            style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../assets/images/Icon_Perfomance.png')}/>
-                            <Text 
-                            style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Performance')}
-                            >
-                                Performance
-                            </Text>            
-                        </View>
-                        {/* Payslip */}
-                        <View style={styles.rectangleMenuPayslip}>
-                            <Image 
-                            style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../assets/images/Icon_Salary.png')}/>
-                            <Text 
-                            style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Presence')}
-                            >
-                            Payslip
-                            </Text>                               
-                        </View>
-                        {/* Submission */}
-                        <View style={styles.rectangleMenuSubmission}>
-                            <Image 
-                            style={{width: 50, height: 50, alignSelf: 'center'}}
-                            source={require('../../assets/images/Icon_Submission.png')}/>
-                            <Text 
-                            style={{fontSize: 10, textAlign: 'center', fontFamily: 'Poppins-SemiBold', lineHeight: 20, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Presence')}
-                            >
-                            Submission
-                            </Text>                        
-                        </View>
-                    </View>           
+                        </TouchableOpacity>
+                        }                
+                    />             
+                {/* </View> */}
+                     
 
-                    {/* News */}
-                    <Text style={styles.textNewsHeading}>News for you</Text>
-                    <Text style={styles.textNewsSeeMore} onPress={()=>this.props.navigation.navigate('News')}>See More</Text>
-                    {/* News Column 1 */}
+                {/* News */}
+                <Text style={styles.textNewsHeading}>News for you</Text>
+                <Text style={styles.textNewsSeeMore} onPress={()=>this.props.navigation.navigate('News')}>See More</Text>
+                {/* News Column 1 */}
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('News')}>
                     <View style={styles.rectangleNews}>
                         <Text style={styles.textDateNews}>Tuesday, Februari 23</Text>
                         <Text style={styles.textHeadlineNews}>Emergency Covid19 at Office</Text>
@@ -129,9 +104,11 @@ export default class HomeScreen extends Component{
                             source={require('../../assets/images/Test-BannerImageNews.png')}/>
                         <View style={styles.ellipseOrnamentBig}/>
                     </View>
+                </TouchableWithoutFeedback>
 
-                    {/* Guideline */}
-                    <Text style={styles.textGuidelineHeading}>Guideline</Text>                    
+                {/* Guideline */}
+                <Text style={styles.textGuidelineHeading}>Guideline</Text>   
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('FAQ')}>
                     <View style={styles.rectangleFAQ}>                                            
                         <View style={styles.ellipseOrnamentSmall}/>  
                         <Image 
@@ -139,10 +116,13 @@ export default class HomeScreen extends Component{
                             source={require('../../assets/images/Icon_FAQ.png')}/> 
                         <Text 
                             style={{left: 90, fontFamily: 'Poppins-Bold', fontSize: 14, lineHeight: 21, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('FAQ')}>
+                           >
                                 Frequently Asked Questions
                         </Text>                                                
-                    </View>                
+                    </View>   
+                </TouchableWithoutFeedback>                 
+
+                <TouchableWithoutFeedback onPress={()=>this.props.navigation.navigate('Rules')}>
                     <View style={styles.rectangleRules}>
                         <View style={styles.ellipseOrnamentSmall}/>
                         <Image 
@@ -150,12 +130,13 @@ export default class HomeScreen extends Component{
                             source={require('../../assets/images/Icon_Rules.png')}/>    
                         <Text 
                             style={{left: 90, fontFamily: 'Poppins-Bold', fontSize: 14, lineHeight: 21, color: '#262734'}}
-                            onPress={()=>this.props.navigation.navigate('Rules')}>
+                            >
                                 Omindtech Rules
                         </Text>
                     </View>
-                </View> 
-            </SafeAreaView>
+                </TouchableWithoutFeedback>                             
+                
+            </View> 
         );
     }
 }
@@ -257,71 +238,16 @@ const styles = StyleSheet.create({
         top: 81,
         borderRadius: 5
     },
-    rectangleMenuPresence:{        
-        position: 'absolute',
-        justifyContent: 'flex-end',
+    rectangleMenu:{        
+        marginLeft: 5,
+        marginRight: 5,
         width: 70,
         height: 70,
-        left: 25,
-        top: 121,       
+        // left: 25,
+        // top: 121,       
         backgroundColor: '#fff',
         // Change this CSS Shadow
-        elevation: 5,
-        borderRadius: 10,
-    },
-    rectangleMenuAttendance:{
-        position: 'absolute',
-        width: 70,
-        height: 70,
-        left: 110,
-        top: 121, 
-        backgroundColor: '#fff',
-        // Change this CSS Shadow
-        elevation: 5,
-        borderRadius: 10,
-    },
-    rectangleMenuAllowance:{
-        position: 'absolute',
-        width: 70,
-        height: 70,
-        left: 195,
-        top: 121,
-        backgroundColor: '#fff',
-        // Change this CSS Shadow
-        elevation: 5,
-        borderRadius: 10,
-    },
-    rectangleMenuPerformance:{
-        position: 'absolute',
-        width: 70,
-        height: 70,
-        left: 280,
-        top: 121,
-        backgroundColor: '#fff',
-        // Change this CSS Shadow
-        elevation: 5,
-        borderRadius: 10,
-    },
-    rectangleMenuPayslip:{
-        position: 'absolute',
-        width: 70,
-        height: 70,
-        left: 365,
-        top: 121,
-        backgroundColor: '#fff',
-        // Change this CSS Shadow
-        elevation: 5,
-        borderRadius: 10,
-    },
-    rectangleMenuSubmission:{
-        position: 'absolute',
-        width: 70,
-        height: 70,
-        left: 450,
-        top: 121,
-        backgroundColor: '#fff',
-        // Change this CSS Shadow
-        elevation: 5,
+        elevation: 1.5,
         borderRadius: 10,
     },
     rectangleNews:{
@@ -332,7 +258,7 @@ const styles = StyleSheet.create({
         top: 239,
         backgroundColor: '#fff',
         borderRadius: 10,
-        elevation: 5
+        elevation: 1.5
     },
     textGuidelineHeading:{
         position: 'absolute',
@@ -351,7 +277,7 @@ const styles = StyleSheet.create({
         left: 25,
         top: 434,
         backgroundColor: '#fff',
-        elevation: 5,
+        elevation: 1.5,
         borderRadius: 10
     },
     ellipseOrnamentSmall:{
@@ -382,7 +308,7 @@ const styles = StyleSheet.create({
         left: 25,
         top: 514,
         backgroundColor: '#fff',
-        elevation: 5,
+        elevation: 1.5,
         borderRadius: 10
     }
     

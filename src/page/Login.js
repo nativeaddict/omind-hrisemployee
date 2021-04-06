@@ -11,14 +11,17 @@ import {
     Alert
 } from 'react-native';
 // import gambar ke objek
+import axios from 'axios';
 import bgimages from '../../assets/images/V_Login.png'
 
 export default class LoginScreen extends Component{
     state={
         email:'',
         password:'',
+        isSubmitting: false
     };
     submit=()=>{
+        this.setState({isSubmitting:true})
         let errors=[];
         if(this.state.email === ''){
             errors.push('Isi Email Terlebih Dahulu !');
@@ -42,6 +45,45 @@ export default class LoginScreen extends Component{
                 ],
                 {cancelable:false}
             );
+            this.setState({isSubmitting:false})
+        }
+        else{
+            axios.post('http://b1e87266b7bb.ngrok.io/api/login', 
+            {
+                email: this.state.email,
+                password: this.state.password
+            },
+            ).then(res =>{            
+                this.setState({isSubmitting:false})
+                this.props.navigation.navigate('Home')
+                console.log(res);
+            }, err => {
+                this.setState({isSubmitting:false})
+                let e = err.response.data;
+
+                let err_msg = '';
+
+                if(e.errors){
+                    Object.entries(e.errors).forEach(
+                        ([key, value]) => {
+                            err_msg += value[0] + '\n';
+                        }
+                    );
+                }
+                else{
+                    err_msg = e.message;
+                }
+
+                Alert.alert(
+                    "Error!",
+                    err_msg,
+                    [
+                        {text: 'OK', onPress:()=>console.log('OK PRESS')}
+                    ],
+                    {cancelable:false}
+                );
+                console.log(err.response.data);
+            });
         }
     }
     constructor(props)
@@ -58,7 +100,7 @@ export default class LoginScreen extends Component{
                     <Text style={styles.textTitle} >Email</Text>
                     <View style={styles.inputEmail}>
                         <TextInput style={styles.inputText}
-                        placeholder="daru@omindtech.com"
+                        placeholder="email@omindtech.com"
                         placeholderTextColor="#fff"
                         selectionColor="#fff"
                         keyboardType="email-address"
@@ -69,15 +111,16 @@ export default class LoginScreen extends Component{
                     <Text style={styles.textPass}>Password</Text>
                     <View style={styles.inputEmail}>
                         <TextInput style={styles.inputText}
-                        placeholder="Password"
-                        placeholderTextColor="#fff" 
-                        onChangeText={(val)=>{this.setState({password: val})}}
-                        value={this.state.password}
-                        ref={(input) => this.password = input}
+                            placeholder="Password"
+                            placeholderTextColor="#fff" 
+                            onChangeText={(val)=>{this.setState({password: val})}}                            
+                            secureTextEntry={true}
+                            value={this.state.password}
+                            ref={(input) => this.password = input}
                         />
                     </View>
-                    <TouchableOpacity style={styles.buttonLogin} onPress={()=>this.props.navigation.navigate('Home')}>
-                        <Text style={styles.textButton}>Sign In</Text>
+                    <TouchableOpacity style={styles.buttonLogin} onPress={this.submit} disabled={this.state.isSubmitting}>
+                        <Text style={styles.textButton}>{this.state.isSubmitting ? "Signing In..." : "Sign In"}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -133,8 +176,8 @@ const styles = StyleSheet.create({
         marginBottom: 60
     },
     textTitle:{
-        fontFamily: 'Poppins-Black',
-        fontSize: 12,
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
         marginTop: 30,
         marginBottom: 0,
         color: '#f2f2f2',
@@ -143,8 +186,8 @@ const styles = StyleSheet.create({
 
     },
     textPass:{
-        fontFamily: 'Poppins-Black',
-        fontSize: 12,
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
         marginBottom: 0,
         color: '#f2f2f2',
         alignItems: 'center',
@@ -194,8 +237,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     textButton:{
-        fontFamily: 'Poppins-Black',
-        fontSize: 13,
+        fontFamily: 'Poppins-Bold',
+        fontSize: 14,
         color: '#f2f2f2'
 
     }
